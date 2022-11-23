@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.itisnotonlyme.inventario": {
+      "version": "https://github.com/It-is-not-only-me/com.itisnotonlyme.inventario.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "4dca848523529a72a58f42dab5a393bfa4ec020b"
+    },
     "com.unity.ai.navigation": {
       "version": "1.1.1",
       "depth": 0,

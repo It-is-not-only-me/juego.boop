@@ -2,7 +2,8 @@
     "name": "Boop.Core",
     "rootNamespace": "",
     "references": [
-        "GUID:da4b4d5f6dd8d444e96fbc17e29969af"
+        "GUID:da4b4d5f6dd8d444e96fbc17e29969af",
+        "GUID:4dac9718f1a766347a4c1ab31f55a2fa"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

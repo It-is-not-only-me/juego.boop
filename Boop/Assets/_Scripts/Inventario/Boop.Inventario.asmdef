@@ -1,3 +1,16 @@
 {
-	"name": "Boop.Inventario"
+    "name": "Boop.Inventario",
+    "rootNamespace": "",
+    "references": [
+        "GUID:4dac9718f1a766347a4c1ab31f55a2fa"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

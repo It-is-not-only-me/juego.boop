@@ -29,5 +29,19 @@ namespace Boop.Core
         ///     En caso de caer afuera del tablero, sera eliminado y debera volver a su correspondiente balde.
         /// </summary>
         public void Eliminado();
+
+        /// <summary>
+        ///     Es igual a un gato de clase Gatito
+        /// </summary>
+        /// <param name="gatito"></param>
+        /// <returns>Devuelve true si lo es</returns>
+        public bool EsIgual(Gatito gatito);
+
+        /// <summary>
+        ///     Es igual a un gato de clase Gato
+        /// </summary>
+        /// <param name="gato"></param>
+        /// <returns>Devuelve true si lo es</returns>
+        public bool EsIgual(Gato gato);
     }
 }

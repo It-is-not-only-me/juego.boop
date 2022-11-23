@@ -1,0 +1,16 @@
+{
+    "name": "Boop.Core",
+    "rootNamespace": "",
+    "references": [
+        "GUID:da4b4d5f6dd8d444e96fbc17e29969af"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

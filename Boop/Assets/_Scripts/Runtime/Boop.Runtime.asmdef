@@ -1,0 +1,16 @@
+{
+    "name": "Boop.Runtime",
+    "rootNamespace": "Boop.Runtime",
+    "references": [
+        "GUID:00ff0a4e97581b747be3bd8e9260cad7"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

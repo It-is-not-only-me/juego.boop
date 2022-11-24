@@ -2,7 +2,10 @@
     "name": "Boop.Runtime",
     "rootNamespace": "Boop.Runtime",
     "references": [
-        "GUID:00ff0a4e97581b747be3bd8e9260cad7"
+        "GUID:00ff0a4e97581b747be3bd8e9260cad7",
+        "GUID:da4b4d5f6dd8d444e96fbc17e29969af",
+        "GUID:4dac9718f1a766347a4c1ab31f55a2fa",
+        "GUID:410eb78c9993f9248af691e5da426767"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

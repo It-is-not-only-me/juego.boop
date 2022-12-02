@@ -11,17 +11,15 @@ namespace Boop.Core
         [SerializeField] private EventoPosicion _sacarPieza;
         [SerializeField] private EventoPosicion _agregarPieza;
 
-        [Space]
-
-        [Header("Posicion")]
-        [SerializeField] private Vector2Int _posicion;
-
         private RectTransform _rectTransform;
+        private Vector2Int _posicion;
 
         private void Awake()
         {
             _rectTransform = GetComponent<RectTransform>();
         }
+
+        public void IniciarlizarPosicion(Vector2Int posicion) => _posicion = posicion;
 
         public void OnDrop(PointerEventData eventData)
         {

@@ -13,24 +13,26 @@ namespace Boop.Core
         [Space]
 
         [Header("Eventos")]
-        [SerializeField] private EventoPosicion _sacarPieza, _agregarPieza;
+        [SerializeField] private EventoPosicion _sacarPieza;
+        [SerializeField] private EventoPosicion _agregarPieza;
 
         public IPieza this[int i, int j] { get => PosicionValida(new Vector2Int(i, j)) ? _piezas[i, j] : null; }
 
         private IPieza[,] _piezas;
-
-        private void Awake()
+        private IPieza[,] Tablero
         {
-            if (_dimensiones == null)
+            get
             {
-                Debug.LogError("No hay dimensiones para el juego");
-                return;
+                if (_piezas == null)
+                    _piezas = new IPieza[_dimensiones.Ancho, _dimensiones.Alto];
+                return _piezas;
             }
-            _piezas = new IPieza[_dimensiones.Ancho, _dimensiones.Alto];
         }
 
         private void OnEnable()
         {
+            Debug.Log("On enable");
+
             if (_sacarPieza != null)
                 _sacarPieza.Evento += SacarPieza;
 
@@ -49,18 +51,22 @@ namespace Boop.Core
 
         private void SacarPieza(Vector2Int posicion, IPieza pieza)
         {
+            Debug.Log("Sacando pieza de: " + posicion);
+
             if (!PosicionValida(posicion))
                 return;
 
-            _piezas[posicion.x, posicion.y] = null;
+            Tablero[posicion.x, posicion.y] = null;
         }
 
         private void AgregarPieza(Vector2Int posicion, IPieza pieza)
         {
+            Debug.Log("Agregando pieza en: " + posicion);
+
             if (!PosicionValida(posicion))
                 return;
 
-            _piezas[posicion.x, posicion.y] = pieza;
+            Tablero[posicion.x, posicion.y] = pieza;
         }
 
         private bool PosicionValida(Vector2Int posicion)

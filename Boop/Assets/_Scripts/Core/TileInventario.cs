@@ -5,13 +5,11 @@ using UnityEngine.EventSystems;
 namespace Boop.Core
 {
     [RequireComponent(typeof(RectTransform))]
-    public class Tile : MonoBehaviour, IDropHandler, ITile
+    public class TileInventario : MonoBehaviour, IDropHandler, ITile
     {
         [Header("Eventos")]
-        [SerializeField] private EventoPosicion _sacarPieza;
-        [SerializeField] private EventoPosicion _agregarPieza;
+        [SerializeField] private EventoVoid _sacarPieza;
 
-        [SerializeField] private Vector2Int _posicion;
         private RectTransform _rectTransform;
 
         private void Awake()
@@ -33,13 +31,12 @@ namespace Boop.Core
         public void UsarPieza(Pieza pieza)
         {
             pieza.PosicionarTile(this);
-            _agregarPieza?.Invoke(_posicion, pieza);
             pieza.Posicion.anchoredPosition = _rectTransform.anchoredPosition;
         }
 
         public void SacarPieza(Pieza pieza)
         {
-            _sacarPieza?.Invoke(_posicion, pieza);
+            _sacarPieza?.Invoke();
         }
     }
 }

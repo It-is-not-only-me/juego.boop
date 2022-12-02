@@ -13,7 +13,7 @@ namespace Boop.Core
 
         [HideInInspector] public RectTransform Posicion;
 
-        private Tile _tileActual = null, _tilePrevio;
+        private ITile _tileActual = null, _tilePrevio;
         private CanvasGroup _canvasGroup;
 
         private void Awake()
@@ -25,7 +25,7 @@ namespace Boop.Core
         public bool EsIgual(IPieza pieza) => EsIgual(pieza as Pieza);
         private bool EsIgual(Pieza pieza) => _datos.EsIgual(pieza._datos);
 
-        public void PosicionarTile(Tile tile)
+        public void PosicionarTile(ITile tile)
         {
             _tileActual = tile;
             _tilePrevio = tile;

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 974
+  controlID: 6
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: Editor test
+  m_LastLoadedLayoutName: 
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 1020
+  controlID: 73
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -309,7 +309,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 1088
+    ID: 156
     splitterInitialOffset: 334.8
     currentActiveSplitter: -1
     realSizes:
@@ -376,7 +376,7 @@ MonoBehaviour:
       name: Boop
       fullName: Boop
       resultStatus: 1
-      duration: 0.1238942
+      duration: 0.0936577
       messages: 
       output: 
       stacktrace: 
@@ -392,7 +392,7 @@ MonoBehaviour:
       name: EditorTests.dll
       fullName: C:/Users/usuario/137/Proyectos/Unity/Juegos/Boop/Boop/Library/ScriptAssemblies/EditorTests.dll
       resultStatus: 1
-      duration: 0.0804673
+      duration: 0.052151
       messages: 
       output: 
       stacktrace: 
@@ -408,7 +408,7 @@ MonoBehaviour:
       name: GatosTest
       fullName: GatosTest
       resultStatus: 1
-      duration: 0.0645122
+      duration: 0.1468827
       messages: 
       output: 
       stacktrace: 
@@ -424,7 +424,7 @@ MonoBehaviour:
       name: Test01GatoChicoEsEmpujadoPorGatoGrande
       fullName: GatosTest.Test01GatoChicoEsEmpujadoPorGatoGrande
       resultStatus: 1
-      duration: 0.026193
+      duration: 0.0574923
       messages: 
       output: 
       stacktrace: 
@@ -441,7 +441,7 @@ MonoBehaviour:
       name: Test02GatoChicoEsEmpujadoAfueraDelTableroPorGatoGrande
       fullName: GatosTest.Test02GatoChicoEsEmpujadoAfueraDelTableroPorGatoGrande
       resultStatus: 1
-      duration: 0.0009805
+      duration: 0.003612
       messages: 
       output: 
       stacktrace: 
@@ -458,7 +458,7 @@ MonoBehaviour:
       name: Test03GatoChicoNoPuedeEmpujarAGatoGrande
       fullName: GatosTest.Test03GatoChicoNoPuedeEmpujarAGatoGrande
       resultStatus: 1
-      duration: 0.0009229
+      duration: 0.0017164
       messages: 
       output: 
       stacktrace: 
@@ -475,7 +475,7 @@ MonoBehaviour:
       name: Test04GatoGrandeEsEmpujadoPorGatoGrande
       fullName: GatosTest.Test04GatoGrandeEsEmpujadoPorGatoGrande
       resultStatus: 1
-      duration: 0.0007183
+      duration: 0.0015802
       messages: 
       output: 
       stacktrace: 
@@ -492,7 +492,7 @@ MonoBehaviour:
       name: Test05GatoChicoNoEsEmpujadoPorGatoChicoSiYaHayUnGatoEnEsaDireccion
       fullName: GatosTest.Test05GatoChicoNoEsEmpujadoPorGatoChicoSiYaHayUnGatoEnEsaDireccion
       resultStatus: 1
-      duration: 0.0005297
+      duration: 0.0019287
       messages: 
       output: 
       stacktrace: 
@@ -504,12 +504,113 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: EditorTests.dll/[EditorTests][GatosTest][suite]
+    - id: 1007
+      uniqueId: EditorTests.dll/[EditorTests][ReglasTest][suite]
+      name: ReglasTest
+      fullName: ReglasTest
+      resultStatus: 1
+      duration: 0.0499217
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1016
+      parentUniqueId: '[EditorTests][C:/Users/usuario/137/Proyectos/Unity/Juegos/Boop/Boop/Library/ScriptAssemblies/EditorTests.dll][suite]'
+    - id: 1008
+      uniqueId: EditorTests.dll/ReglasTest/[EditorTests][ReglasTest.Test01EnUnTableroVacioNoSeAplicaLaRegla]
+      name: Test01EnUnTableroVacioNoSeAplicaLaRegla
+      fullName: ReglasTest.Test01EnUnTableroVacioNoSeAplicaLaRegla
+      resultStatus: 1
+      duration: 0.0394441
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: EditorTests.dll/[EditorTests][ReglasTest][suite]
+    - id: 1009
+      uniqueId: EditorTests.dll/ReglasTest/[EditorTests][ReglasTest.Test02EnUnTableroConUnSoloGatitoNoSeAplicaLaRegla]
+      name: Test02EnUnTableroConUnSoloGatitoNoSeAplicaLaRegla
+      fullName: ReglasTest.Test02EnUnTableroConUnSoloGatitoNoSeAplicaLaRegla
+      resultStatus: 1
+      duration: 0.0184272
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: EditorTests.dll/[EditorTests][ReglasTest][suite]
+    - id: 1010
+      uniqueId: EditorTests.dll/ReglasTest/[EditorTests][ReglasTest.Test03EnUnTableroCon3GatitosDelMismoJugadorSeAplicaLaRegla]
+      name: Test03EnUnTableroCon3GatitosDelMismoJugadorSeAplicaLaRegla
+      fullName: ReglasTest.Test03EnUnTableroCon3GatitosDelMismoJugadorSeAplicaLaRegla
+      resultStatus: 1
+      duration: 0.0001707
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: EditorTests.dll/[EditorTests][ReglasTest][suite]
+    - id: 1011
+      uniqueId: EditorTests.dll/ReglasTest/[EditorTests][ReglasTest.Test04EnUnTableroCon2GatitosYUnoGrandeDelMismoJugadorNoSeAplicaLaRegla]
+      name: Test04EnUnTableroCon2GatitosYUnoGrandeDelMismoJugadorNoSeAplicaLaRegla
+      fullName: ReglasTest.Test04EnUnTableroCon2GatitosYUnoGrandeDelMismoJugadorNoSeAplicaLaRegla
+      resultStatus: 1
+      duration: 0.0297829
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: EditorTests.dll/[EditorTests][ReglasTest][suite]
+    - id: 1012
+      uniqueId: EditorTests.dll/ReglasTest/[EditorTests][ReglasTest.Test05EnUnTableroCon2GatitosDelMismoJugadorYUnoDeOtroNoSeAplicaLaRegla]
+      name: Test05EnUnTableroCon2GatitosDelMismoJugadorYUnoDeOtroNoSeAplicaLaRegla
+      fullName: ReglasTest.Test05EnUnTableroCon2GatitosDelMismoJugadorYUnoDeOtroNoSeAplicaLaRegla
+      resultStatus: 1
+      duration: 0.0239099
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: EditorTests.dll/[EditorTests][ReglasTest][suite]
     - id: 1003
       uniqueId: EditorTests.dll/[EditorTests][TableroTest][suite]
       name: TableroTest
       fullName: TableroTest
       resultStatus: 1
-      duration: 0.0127251
+      duration: 0.0371606
       messages: 
       output: 
       stacktrace: 
@@ -525,7 +626,7 @@ MonoBehaviour:
       name: Test01AlAgregarUnGatoAlTableroSeEstableceLaPosicionYElTableroCorrecto
       fullName: TableroTest.Test01AlAgregarUnGatoAlTableroSeEstableceLaPosicionYElTableroCorrecto
       resultStatus: 1
-      duration: 0.0011118
+      duration: 0.0020452
       messages: 
       output: 
       stacktrace: 
@@ -542,7 +643,7 @@ MonoBehaviour:
       name: Test02AlAgregarUnGatoAlTableroEnUnaPosicionAfueraDeRangoNoSeEstableceLaPosicionYElTablero
       fullName: TableroTest.Test02AlAgregarUnGatoAlTableroEnUnaPosicionAfueraDeRangoNoSeEstableceLaPosicionYElTablero
       resultStatus: 1
-      duration: 0.0005156
+      duration: 0.0014888
       messages: 
       output: 
       stacktrace: 
@@ -559,7 +660,7 @@ MonoBehaviour:
       name: Test03AlAgregarUnGatoAlTableroEnUnaPosicionYaOcupadaNoSeEstableceLaPosicionYElTablero
       fullName: TableroTest.Test03AlAgregarUnGatoAlTableroEnUnaPosicionYaOcupadaNoSeEstableceLaPosicionYElTablero
       resultStatus: 1
-      duration: 0.0005717
+      duration: 0.0020264
       messages: 
       output: 
       stacktrace: 
@@ -576,7 +677,7 @@ MonoBehaviour:
       name: Test04AlAgregarUnGatoBoopeaAlGatoSiEstaAUnoDeDistancia
       fullName: TableroTest.Test04AlAgregarUnGatoBoopeaAlGatoSiEstaAUnoDeDistancia
       resultStatus: 1
-      duration: 0.0005455
+      duration: 0.0021427
       messages: 
       output: 
       stacktrace: 
@@ -593,7 +694,7 @@ MonoBehaviour:
       name: Test05AlSerBoopeadoDelTableroSeSaleDeEste
       fullName: TableroTest.Test05AlSerBoopeadoDelTableroSeSaleDeEste
       resultStatus: 1
-      duration: 0.0006823
+      duration: 0.0018264
       messages: 
       output: 
       stacktrace: 
@@ -605,13 +706,14 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1007
       parentUniqueId: EditorTests.dll/[EditorTests][TableroTest][suite]
-    m_ResultText: Test04AlAgregarUnGatoBoopeaAlGatoSiEstaAUnoDeDistancia (0.001s)
+    m_ResultText: Test05EnUnTableroCon2GatitosDelMismoJugadorYUnoDeOtroNoSeAplicaLaRegla
+      (0.024s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 51c1522e
-      m_LastClickedID: 777175377
-      m_ExpandedIDs: 98a3458146f7cf96c52617a3dac478b66b915f3e42c5db54a178807dffffff7f
+      m_SelectedIDs: c41328c6
+      m_LastClickedID: -970452028
+      m_ExpandedIDs: 98a34581659c389346f7cf96c52617a3dac478b66b915f3e42c5db54a178807dffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -751,7 +853,8 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SkipHidden: 0
     m_SearchArea: 1
-    m_Folders: []
+    m_Folders:
+    - Assets/_Scripts/Modelo
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -766,7 +869,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 0c5a0000
     m_LastClickedID: 23052
-    m_ExpandedIDs: ffffffff00000000ba0600000ac700000cc700000ec7000010c7000012c7000014c7000016c7000018c700001ac700001cc700001ec7000084c80000bcc80000
+    m_ExpandedIDs: 00000000166a0000186a00001a6a00001c6a00001e6a0000206a0000226a0000246a0000266a0000286a00002a6a00002c6a00002e6a0000306a0000326a0000346a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -794,7 +897,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: ffffffff00000000ba0600000ac700000cc700000ec7000010c7000012c7000014c7000016c7000018c700001ac700001cc700001ec7000084c80000bcc80000d4c800000ac90000
+    m_ExpandedIDs: ffffffff00000000166a0000186a00001a6a00001c6a00001e6a0000206a0000226a0000246a0000266a0000286a00002a6a00002c6a00002e6a0000326a0000346a0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -810,7 +913,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 10}
+      m_ClientGUIView: {fileID: 3}
     m_SearchString: 
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}

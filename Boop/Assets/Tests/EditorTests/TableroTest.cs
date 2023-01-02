@@ -1,6 +1,6 @@
 using System;
 using NUnit.Framework;
-using Boop;
+using Boop.Modelo;
 
 public class TableroTest
 {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Boop
+namespace Boop.Modelo
 {
     public class ListaLimitada<TTipo> where TTipo : class
     {

@@ -1,4 +1,4 @@
-﻿using Boop;
+﻿using Boop.Modelo;
 using System;
 public class TableroPrueba : ITablero
 {

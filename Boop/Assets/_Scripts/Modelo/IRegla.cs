@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Boop
+namespace Boop.Modelo
 {
     public interface IRegla
     {

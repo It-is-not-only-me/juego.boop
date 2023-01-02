@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
-using Boop;
+using Boop.Modelo;
 using System;
 
 public class ReglasTest

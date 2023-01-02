@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using UnityEngine;
 
-namespace Boop
+namespace Boop.Modelo
 {
     public class ReglaUpgradeGatitos : IRegla
     {

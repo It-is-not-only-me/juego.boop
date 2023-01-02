@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Boop;
+using Boop.Modelo;
 
 public class JugadorPrueba : IJugador
 {

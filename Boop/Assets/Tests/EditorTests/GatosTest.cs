@@ -1,4 +1,4 @@
-﻿using Boop;
+﻿using Boop.Modelo;
 using NUnit.Framework;
 
 public class GatosTest

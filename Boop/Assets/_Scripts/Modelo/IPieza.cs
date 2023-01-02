@@ -1,4 +1,4 @@
-﻿namespace Boop
+﻿namespace Boop.Modelo
 {
     public interface IPieza
     {

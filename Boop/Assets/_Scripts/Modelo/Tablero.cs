@@ -1,6 +1,6 @@
 namespace Boop
 {
-    public class Tablero
+    public class Tablero : ITablero
     {
         private int _ancho, _alto;
 
@@ -21,7 +21,7 @@ namespace Boop
 
         public bool AgregarPieza(IPieza pieza, int x, int y)
         {
-            if (!EnRango(x, y) || !HayPiezaEn(x, y))
+            if (!EnRango(x, y) || HayPiezaEn(x, y))
                 return false;
 
             this[x, y] = pieza;
@@ -30,6 +30,9 @@ namespace Boop
             for (int i = -1; i <= 1; i++)
                 for (int j = -1; j <= 1; j++)
                 {
+                    if (i == 0 && j == 0)
+                        continue;
+
                     int nuevoX = x + i, nuevoY = y + j;
 
                     if (!EnRango(nuevoX, nuevoY) || this[nuevoX, nuevoY] == null)
@@ -43,7 +46,7 @@ namespace Boop
 
         public bool EliminarPieza(int x, int y)
         {
-            if (!EnRango(x, y) || !HayPiezaEn(x,y))
+            if (!EnRango(x, y) || !HayPiezaEn(x, y))
                 return false;
 
             this[x, y].SalirDelTablero();
@@ -62,8 +65,8 @@ namespace Boop
 
             return true;
         }
+        public bool HayPiezaEn(int x, int y) => this[x, y] != null;
 
-        private bool EnRango(int x, int y) => 0 <= x && x < _ancho && 0 <= y && y < _alto;
-        private bool HayPiezaEn(int x, int y) => this[x, y] != null;
+        public bool EnRango(int x, int y) => 0 <= x && x < _ancho && 0 <= y && y < _alto;
     }
 }

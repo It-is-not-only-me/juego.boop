@@ -6,6 +6,6 @@ namespace Boop
 {
     public interface IRegla
     {
-        public void Aplicar();
+        public void Aplicar(IPieza pieza, int x, int y);
     }
 }

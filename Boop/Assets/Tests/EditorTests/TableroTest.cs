@@ -4,8 +4,6 @@ using Boop;
 
 public class TableroTest
 {
-    
-
     public class PiezaGatoChicoPrueba : IPieza
     {
         public Action EventoBoop, EventoSacarDelTablero;
@@ -65,7 +63,7 @@ public class TableroTest
         _cantidadGatitos = 8;
         _cantidadGatos = 8;
 
-        _jugador = new JugadorTest(_cantidadGatitos, _cantidadGatos);
+        _jugador = new JugadorPrueba(_cantidadGatitos, _cantidadGatos);
 
         _ancho = 6;
         _alto = 6;

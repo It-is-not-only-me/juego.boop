@@ -29,40 +29,39 @@ namespace Boop
             };
         }
 
-        public void Aplicar()
+        public void Aplicar(IPieza pieza, int x, int y)
         {
-            for (int i = 1; i < _ancho - 1; i++)
-                for (int j = 1; j < _alto - 1; j++)
-                {
-                    IPieza piezaActual = _tablero[i, j];
-                    if (!piezaActual.EsUpgradeable())
-                        continue;
+            if (pieza == null || !pieza.EsUpgradeable())
+                return;
 
-                    foreach (Vector2Int delta in _diagonales)
-                    {
-                        int diagonalX = i + delta.x, diagonalY = j + delta.y;
-                        int opuestoX = i - delta.x, opuestoY = j - delta.y;
-                        if (!_tablero.HayPiezaEn(diagonalX, diagonalY) || !_tablero.HayPiezaEn(opuestoX, opuestoY))
-                            continue;
+            foreach (Vector2Int delta in _diagonales)
+            {
+                int diagonalX = x + delta.x, diagonalY = y + delta.y;
+                int opuestoX = x - delta.x, opuestoY = y - delta.y;
 
-                        IPieza piezaDiagonal = _tablero[diagonalX, diagonalY], piezaOpuesta = _tablero[opuestoX, opuestoY];
-                        if (!piezaActual.EsIgual(piezaDiagonal) || !piezaActual.EsIgual(piezaOpuesta))
-                            continue;
+                if (!_tablero.EnRango(diagonalX, diagonalY) || !_tablero.EnRango(opuestoX, opuestoY))
+                    continue;
 
-                        _tablero.EliminarPieza(i, j);
-                        _tablero.EliminarPieza(diagonalX, diagonalY);
-                        _tablero.EliminarPieza(opuestoX, opuestoY);
+                if (!_tablero.HayPiezaEn(diagonalX, diagonalY) || !_tablero.HayPiezaEn(opuestoX, opuestoY))
+                    continue;
 
-                        IJugador jugador = piezaActual.PerteneceA(_jugador1) ? _jugador1 : _jugador2;
-                        jugador.AgregarGatoChico((PiezaGatoChico)piezaActual);
-                        jugador.AgregarGatoChico((PiezaGatoChico)piezaDiagonal);
-                        jugador.AgregarGatoChico((PiezaGatoChico)piezaOpuesta);
+                IPieza piezaDiagonal = _tablero[diagonalX, diagonalY], piezaOpuesta = _tablero[opuestoX, opuestoY];
+                if (!pieza.EsIgual(piezaDiagonal) || !pieza.EsIgual(piezaOpuesta))
+                    continue;
 
-                        jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
-                        jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
-                        jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
-                    }
-                }
+                _tablero.EliminarPieza(x, y);
+                _tablero.EliminarPieza(diagonalX, diagonalY);
+                _tablero.EliminarPieza(opuestoX, opuestoY);
+
+                IJugador jugador = pieza.PerteneceA(_jugador1) ? _jugador1 : _jugador2;
+                jugador.AgregarGatoChico((PiezaGatoChico)pieza);
+                jugador.AgregarGatoChico((PiezaGatoChico)piezaDiagonal);
+                jugador.AgregarGatoChico((PiezaGatoChico)piezaOpuesta);
+
+                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
+                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
+                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
+            }
         }
     }
 }

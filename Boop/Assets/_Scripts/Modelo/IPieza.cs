@@ -6,6 +6,16 @@
 
         public void SalirDelTablero();
 
+        public bool PerteneceA(IJugador jugador);
+
+        public bool EsUpgradeable();
+
+        public bool EsIgual(IPieza pieza);
+
+        public bool EsIgual(PiezaGatoGrande pieza);
+
+        public bool EsIgual(PiezaGatoChico pieza);
+
         /// <summary>
         ///     Empujar la pieza pasada por parametro.
         /// </summary>

@@ -4,6 +4,12 @@
     {
         protected ITablero _tablero;
         protected int _posicionX, _posicionY;
+        protected IJugador _jugador;
+
+        protected PiezaGeneral(IJugador jugador)
+        {
+            _jugador = jugador;
+        }
 
         public void EstablecerTablero(ITablero tablero, int x, int y)
         {
@@ -16,6 +22,11 @@
         {
             _tablero = null;
         }
+
+        public abstract bool EsIgual(IPieza pieza);
+        public abstract bool EsIgual(PiezaGatoGrande pieza);
+        public abstract bool EsIgual(PiezaGatoChico pieza);
+
 
         public abstract void Boop(IPieza pieza);
         public abstract void Boop(PiezaGatoGrande pieza, int x, int y);
@@ -35,5 +46,8 @@
                 _tablero.MoverPieza(_posicionX, _posicionY, nuevaX, nuevaY);
         }
 
+        public bool PerteneceA(IJugador jugador) => _jugador == jugador;
+
+        public abstract bool EsUpgradeable();
     }
 }

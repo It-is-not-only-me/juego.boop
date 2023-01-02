@@ -1,7 +1,6 @@
 ﻿using Boop;
 using NUnit.Framework;
 using System;
-using System.Diagnostics;
 
 public class GatosTest
 {
@@ -17,6 +16,10 @@ public class GatosTest
         }
 
         public IPieza this[int x, int y] => _tablero[x, y];
+
+        public int Ancho => _tablero.Ancho;
+
+        public int Alto => _tablero.Alto;
 
         public bool AgregarPieza(IPieza pieza, int x, int y)
         {
@@ -46,7 +49,20 @@ public class GatosTest
         public bool EnRango(int x, int y) => _tablero.EnRango(x, y);
     }
 
-    private int _ancho = 6, _alto = 6;
+    private int _cantidadGatitos, _cantidadGatos;
+    private IJugador _jugador;
+    private int _ancho, _alto;
+
+    public GatosTest()
+    {
+        _cantidadGatitos = 8;
+        _cantidadGatos = 8;
+        
+        _jugador = new JugadorTest(_cantidadGatitos, _cantidadGatos);
+
+        _ancho = 6;
+        _alto = 6;
+    }
 
     [Test]
     public void Test01GatoChicoEsEmpujadoPorGatoGrande()
@@ -55,8 +71,8 @@ public class GatosTest
         bool seMueve = false;
         tablero.EventoMoverPieza += (pudoMoverPieza) => seMueve = pudoMoverPieza;
 
-        IPieza gatoChico = new PiezaGatoChico();
-        IPieza gatoGrande = new PiezaGatoGrande();
+        IPieza gatoChico = new PiezaGatoChico(_jugador);
+        IPieza gatoGrande = new PiezaGatoGrande(_jugador);
 
         tablero.AgregarPieza(gatoChico, 1, 3);
         tablero.AgregarPieza(gatoGrande, 2, 2);
@@ -73,8 +89,8 @@ public class GatosTest
         tablero.EventoMoverPieza += (pudoMoverPieza) => seMueve = pudoMoverPieza;
         tablero.EventoEliminarPieza += (pudoEliminarPieza) => seElimina = pudoEliminarPieza;
 
-        IPieza gatoChico = new PiezaGatoChico();
-        IPieza gatoGrande = new PiezaGatoGrande();
+        IPieza gatoChico = new PiezaGatoChico(_jugador);
+        IPieza gatoGrande = new PiezaGatoGrande(_jugador);
 
         tablero.AgregarPieza(gatoChico, 0, 0);
         tablero.AgregarPieza(gatoGrande, 1, 1);
@@ -90,8 +106,8 @@ public class GatosTest
         bool seMueve = false;
         tablero.EventoMoverPieza += (pudoMoverPieza) => seMueve = pudoMoverPieza;
 
-        IPieza gatoChico = new PiezaGatoChico();
-        IPieza gatoGrande = new PiezaGatoGrande();
+        IPieza gatoChico = new PiezaGatoChico(_jugador);
+        IPieza gatoGrande = new PiezaGatoGrande(_jugador);
 
         tablero.AgregarPieza(gatoGrande, 2, 2);
         tablero.AgregarPieza(gatoChico, 1, 3);
@@ -106,8 +122,8 @@ public class GatosTest
         bool seMueve = false;
         tablero.EventoMoverPieza += (pudoMoverPieza) => seMueve = pudoMoverPieza;
 
-        IPieza gatoGrande = new PiezaGatoGrande();
-        IPieza gatoGrande2 = new PiezaGatoGrande();
+        IPieza gatoGrande = new PiezaGatoGrande(_jugador);
+        IPieza gatoGrande2 = new PiezaGatoGrande(_jugador);
 
         tablero.AgregarPieza(gatoGrande, 1, 3);
         tablero.AgregarPieza(gatoGrande2, 2, 2);
@@ -122,9 +138,9 @@ public class GatosTest
         bool seMueve = false;
         tablero.EventoMoverPieza += (pudoMoverPieza) => seMueve = pudoMoverPieza;
 
-        IPieza gatoChico = new PiezaGatoChico();
-        IPieza gatoChico2 = new PiezaGatoChico();
-        IPieza gatoGrande = new PiezaGatoGrande();
+        IPieza gatoChico = new PiezaGatoChico(_jugador);
+        IPieza gatoChico2 = new PiezaGatoChico(_jugador);
+        IPieza gatoGrande = new PiezaGatoGrande(_jugador);
 
         tablero.AgregarPieza(gatoGrande, 0, 4);
         tablero.AgregarPieza(gatoChico, 1, 3);

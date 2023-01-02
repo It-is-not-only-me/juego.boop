@@ -19,6 +19,9 @@ namespace Boop
 
         public IPieza this[int x, int y] { get => _tablero[x, y]; private set => _tablero[x, y] = value; }
 
+        public int Ancho => _ancho;
+        public int Alto => _alto;
+
         public bool AgregarPieza(IPieza pieza, int x, int y)
         {
             if (!EnRango(x, y) || HayPiezaEn(x, y))

@@ -1,12 +1,11 @@
 using System;
-using System.Collections.Generic;
 using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.TestTools;
 using Boop;
 
 public class TableroTest
 {
+    
+
     public class PiezaGatoChicoPrueba : IPieza
     {
         public Action EventoBoop, EventoSacarDelTablero;
@@ -14,9 +13,9 @@ public class TableroTest
 
         private PiezaGatoChico _pieza;
 
-        public PiezaGatoChicoPrueba()
+        public PiezaGatoChicoPrueba(IJugador jugador)
         {
-            _pieza = new PiezaGatoChico();
+            _pieza = new PiezaGatoChico(jugador);
         }
 
         public void Boop(IPieza pieza)
@@ -48,15 +47,35 @@ public class TableroTest
             _pieza.SalirDelTablero();
             EventoSacarDelTablero?.Invoke();
         }
+
+        public bool EsIgual(IPieza pieza) => _pieza.EsIgual(pieza);
+        public bool EsIgual(PiezaGatoGrande pieza) => _pieza.EsIgual(pieza);
+        public bool EsIgual(PiezaGatoChico pieza) => _pieza.EsIgual(pieza);
+
+        public bool PerteneceA(IJugador jugador) => _pieza.PerteneceA(jugador);
+        public bool EsUpgradeable() => _pieza.EsUpgradeable();
     }
 
-    private int _ancho = 6, _alto = 6;
+    private int _cantidadGatitos, _cantidadGatos;
+    private IJugador _jugador;
+    private int _ancho, _alto;
+
+    public TableroTest()
+    {
+        _cantidadGatitos = 8;
+        _cantidadGatos = 8;
+
+        _jugador = new JugadorTest(_cantidadGatitos, _cantidadGatos);
+
+        _ancho = 6;
+        _alto = 6;
+    }
 
     [Test]
     public void Test01AlAgregarUnGatoAlTableroSeEstableceLaPosicionYElTableroCorrecto()
     {
         int posicionX = 2, posicionY = 2;
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba();
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
         bool seEstableceCorrectamente = false;
         pieza.EventoEstablecerTablero += (tablero, x, y) => seEstableceCorrectamente = (x == posicionX && y == posicionY && tablero != null);
 
@@ -71,7 +90,7 @@ public class TableroTest
     public void Test02AlAgregarUnGatoAlTableroEnUnaPosicionAfueraDeRangoNoSeEstableceLaPosicionYElTablero()
     {
         int posicionX = 10, posicionY = 10;
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba();
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
         bool seEstableceCorrectamente = false;
         pieza.EventoEstablecerTablero += (tablero, x, y) => seEstableceCorrectamente = true;
 
@@ -86,8 +105,8 @@ public class TableroTest
     public void Test03AlAgregarUnGatoAlTableroEnUnaPosicionYaOcupadaNoSeEstableceLaPosicionYElTablero()
     {
         int posicionX = 2, posicionY = 2;
-        IPieza piezaOcupa = new PiezaGatoChico();
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba();
+        IPieza piezaOcupa = new PiezaGatoChico(_jugador);
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
         bool seEstableceCorrectamente = false;
         pieza.EventoEstablecerTablero += (tablero, x, y) => seEstableceCorrectamente = true;
 
@@ -103,8 +122,8 @@ public class TableroTest
     public void Test04AlAgregarUnGatoBoopeaAlGatoSiEstaAUnoDeDistancia()
     {
         int posicionX = 2, posicionY = 2;
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba();
-        IPieza piezaBoopeadora = new PiezaGatoChico();
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
+        IPieza piezaBoopeadora = new PiezaGatoChico(_jugador);
         bool seBoopea = false;
         pieza.EventoBoop += () => seBoopea = true;
 
@@ -120,8 +139,8 @@ public class TableroTest
     public void Test05AlSerBoopeadoDelTableroSeSaleDeEste()
     {
         int posicionX = 0, posicionY = 0;
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba();
-        IPieza piezaBoopeadora = new PiezaGatoChico();
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
+        IPieza piezaBoopeadora = new PiezaGatoChico(_jugador);
         bool seSacaDelTablero = false;
         pieza.EventoSacarDelTablero += () => seSacaDelTablero = true;
 

@@ -1,0 +1,13 @@
+﻿using System;
+using UnityEngine;
+
+namespace Boop.UI
+{
+    [CreateAssetMenu(fileName = "Evento void", menuName = "Boop/Evento/Void")]
+    public class EventoVoid : ScriptableObject
+    {
+        public Action Evento;
+
+        public void Invoke() => Evento?.Invoke();
+    }
+}

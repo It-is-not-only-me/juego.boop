@@ -2020,7 +2020,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ad419aedf91d46bbf92da409e7b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoHabilitar: {fileID: 0}
+  _eventoHabilitar: {fileID: 11400000, guid: fe14a5168aabf4f45a68ce153e2ed420, type: 2}
   _estadoActual: 0
 --- !u!1 &731886248
 GameObject:
@@ -3591,7 +3591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ad419aedf91d46bbf92da409e7b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoHabilitar: {fileID: 0}
+  _eventoHabilitar: {fileID: 11400000, guid: d94e02fb7fa24fb4e8c426d199b9f6fe, type: 2}
   _estadoActual: 1
 --- !u!1 &1414898566
 GameObject:

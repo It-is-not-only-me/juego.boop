@@ -89,3 +89,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56a4a62d95368342bc4fef1ca0d23ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _eventoSacarPieza: {fileID: 11400000, guid: be76fac2a8a94e54ba558567e1d45ecb, type: 2}

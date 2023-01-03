@@ -1,4 +1,5 @@
-﻿using Boop.Modelo;
+﻿using Boop.Evento;
+using Boop.Modelo;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -8,7 +9,10 @@ namespace Boop.UI
     [RequireComponent(typeof(Image), typeof(RectTransform))]
     public class PiezaUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
+        [SerializeField] private EventoCoordenada _eventoSacarPieza;
+
         private IPieza _pieza;
+        private int _posicionX = -1, _posicionY = -1;
         private bool _posicionado;
 
         private SlotUI _slot;
@@ -52,6 +56,9 @@ namespace Boop.UI
         public void Inicializar(int x, int y)
         {
             _pieza?.EstablecerTablero(x, y);
+            _posicionX = x;
+            _posicionY = y;
+
             _getImagen.raycastTarget = false;
             _posicionado = true;
         }
@@ -61,6 +68,15 @@ namespace Boop.UI
             _slot?.Sacar();
             _slot = slot;
             _padre = slot.transform;
+        }
+
+        public void SacarPieza(int x, int y)
+        {
+            if (_posicionX != x || _posicionY != y)
+                return;
+
+            _slot?.Sacar();
+            Destroy(this);
         }
 
         public void OnBeginDrag(PointerEventData eventData)

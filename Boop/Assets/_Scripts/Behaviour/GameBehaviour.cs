@@ -18,49 +18,61 @@ namespace Boop.Bahaviour
         [Space]
 
         [SerializeField] private EventoVoid _terminarJugada;
+        [SerializeField] private EventoBool _empezarJuego;
 
         [Space]
 
-        [SerializeField] private EventoVoid _habilitarJugador1;
-        [SerializeField] private EventoVoid _habilitarJugador2;
+        [SerializeField] private EventoBool _habilitarJugador1;
+        [SerializeField] private EventoBool _habilitarJugador2;
 
         private IRegla _regla;
         private EstadoJuego _estadoActual;
         
 
-        private void Awake()
-        {
-            _regla = new ReglaUpgradeGatitos(_tablero, _jugador1, _jugador2);
-            _estadoActual = EstadoJuego.TurnoJugador1;
-        }
-
         private void OnEnable()
         {
             if (_terminarJugada != null)
                 _terminarJugada.Evento += AvanzarJuego;
+
+            if (_empezarJuego != null)
+                _empezarJuego.Evento += Empezar;
         }
 
         private void OnDisable()
         {
             if (_terminarJugada != null)
                 _terminarJugada.Evento -= AvanzarJuego;
+
+            if (_empezarJuego != null)
+                _empezarJuego.Evento -= Empezar;
+        }
+
+        private void Empezar(bool estado)
+        {
+            _regla = new ReglaUpgradeGatitos(_tablero, _jugador1, _jugador2);
+            _estadoActual = EstadoJuego.TurnoJugador1;
+            _habilitarJugador1?.Invoke(true);
+            _habilitarJugador2?.Invoke(false);
         }
 
         private void AvanzarJuego()
         {
+            _habilitarJugador1?.Invoke(true);
+            _habilitarJugador2?.Invoke(true);
+
             AplicarReglas();
 
             switch (_estadoActual)
             {
                 case EstadoJuego.TurnoJugador1:
 
-                    _habilitarJugador1?.Invoke();
+                    _habilitarJugador1?.Invoke(false);
                     _estadoActual = EstadoJuego.TurnoJugador2;
 
                     break;
                 case EstadoJuego.TurnoJugador2:
 
-                    _habilitarJugador2?.Invoke();
+                    _habilitarJugador2?.Invoke(false);
                     _estadoActual = EstadoJuego.TurnoJugador1;
 
                     break;

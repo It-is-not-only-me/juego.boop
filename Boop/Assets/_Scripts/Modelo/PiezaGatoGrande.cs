@@ -26,5 +26,7 @@
         public override bool EsIgual(PiezaGatoChico pieza) => false;
 
         public override bool EsUpgradeable() => true;
+
+        public override void VolverAlJugador() => _jugador.AgregarGatoGrande(this);
     }
 }

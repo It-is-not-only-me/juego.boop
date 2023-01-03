@@ -90,7 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EventoInicializar: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &-1506217470499961781
 MonoBehaviour:
   m_ObjectHideFlags: 0

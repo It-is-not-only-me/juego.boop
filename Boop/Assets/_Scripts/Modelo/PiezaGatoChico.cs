@@ -26,5 +26,7 @@
         public override bool EsIgual(PiezaGatoChico pieza) => pieza.PerteneceA(_jugador);
 
         public override bool EsUpgradeable() => true;
+
+        public override void VolverAlJugador() => _jugador.AgregarGatoChico(this);
     }
 }

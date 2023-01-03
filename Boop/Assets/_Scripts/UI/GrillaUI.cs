@@ -34,6 +34,11 @@ namespace Boop.UI
             }
         }
 
+        private void Start()
+        {
+            GenerarTablero();
+        }
+
         [ContextMenu("Recalcular tablero")]
         private void GenerarTablero()
         {

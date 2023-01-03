@@ -10,9 +10,11 @@ public class TableroTest
         public Action<int, int> EventoEstablecerTablero;
 
         private PiezaGatoChico _pieza;
+        private IJugador _jugador;
 
         public PiezaGatoChicoPrueba(IJugador jugador, ITablero tablero)
         {
+            _jugador = jugador;
             _pieza = new PiezaGatoChico(jugador, tablero);
         }
 
@@ -52,6 +54,8 @@ public class TableroTest
 
         public bool PerteneceA(IJugador jugador) => _pieza.PerteneceA(jugador);
         public bool EsUpgradeable() => _pieza.EsUpgradeable();
+
+        public void VolverAlJugador() => _jugador.AgregarGatoChico(_pieza);
     }
 
     private int _cantidadGatitos, _cantidadGatos;

@@ -15,6 +15,7 @@ namespace Boop.UI
         [Space]
 
         [SerializeField] private EventoMovimiento _eventoMoverPieza;
+        [SerializeField] private EventoAgregarPieza _eventoAgregarPieza;
 
         private IPieza _pieza;
         private int _posicionX = -1, _posicionY = -1;
@@ -78,9 +79,9 @@ namespace Boop.UI
 
         public void Inicializar(int x, int y)
         {
-            _pieza?.EstablecerTablero(x, y);
             _posicionX = x;
             _posicionY = y;
+            _eventoAgregarPieza?.Invoke(_pieza, x, y);
 
             _getImagen.raycastTarget = false;
             _posicionado = true;
@@ -99,7 +100,7 @@ namespace Boop.UI
                 return;
 
             _slot?.Sacar();
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         private void TransladarPieza(int xOriginal, int yOriginal, int xFinal, int yFinal)
@@ -127,9 +128,14 @@ namespace Boop.UI
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            transform.SetParent(_padre);
+            ActualizarPadre();
             if (!_posicionado)
                 _imagen.raycastTarget = true;
+        }
+
+        public void ActualizarPadre()
+        {
+            transform.SetParent(_padre);
         }
     }
 }

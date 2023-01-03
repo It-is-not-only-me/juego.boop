@@ -12,8 +12,13 @@ namespace Boop.Bahaviour
 
         [Space]
 
-        [SerializeField] private EventoPieza _agregarGatito;
-        [SerializeField] private EventoPieza _agregarGato;
+        [SerializeField] private EventoPieza _eventoAgregarGatito;
+        [SerializeField] private EventoPieza _eventoAgregarGato;
+
+        [Space]
+
+        [SerializeField] private EventoVoid _eventoSacarGatito;
+        [SerializeField] private EventoVoid _eventoSacarGato;
 
         private Inventario _inventario;
 
@@ -29,11 +34,29 @@ namespace Boop.Bahaviour
                 AgregarGatoGrande(new PiezaGatoGrande(this, _tablero));
         }
 
+        private void OnEnable()
+        {
+            if (_eventoSacarGatito != null)
+                _eventoSacarGatito.Evento += SacarGatito;
+
+            if (_eventoSacarGato != null)
+                _eventoSacarGato.Evento += SacarGato;
+        }
+
+        private void OnDisable()
+        {
+            if (_eventoSacarGatito != null)
+                _eventoSacarGatito.Evento -= SacarGatito;
+
+            if (_eventoSacarGato != null)
+                _eventoSacarGato.Evento -= SacarGato;
+        }
+
         public bool AgregarGatoChico(PiezaGatoChico pieza)
         {
             bool sePudoAgregar = _inventario.AgregarGatoChico(pieza);
             if (sePudoAgregar)
-                _agregarGatito?.Invoke(pieza);
+                _eventoAgregarGatito?.Invoke(pieza);
             return sePudoAgregar;
         }
 
@@ -41,12 +64,14 @@ namespace Boop.Bahaviour
         {
             bool sePudoAgregar = _inventario.AgregarGatoGrande(pieza);
             if (sePudoAgregar)
-                _agregarGato?.Invoke(pieza);
+                _eventoAgregarGato?.Invoke(pieza);
             return sePudoAgregar;
         }
 
+        private void SacarGatito() => EliminarGatoChico();
         public bool EliminarGatoChico() => _inventario.EliminarGatoChico();
 
+        private void SacarGato() => EliminarGatoGrande();
         public bool EliminarGatoGrande() => _inventario.EliminarGatoGrande();
     }
 }

@@ -10,12 +10,31 @@ namespace Boop.Bahaviour
     {
         [SerializeField] private ConfiguracionGrilla _configuracion;
 
+        [SerializeField] private EventoAgregarPieza _eventoAgregarPieza;
+
         [Space]
 
-        [SerializeField] private EventoCoordenada _sacarPieza;
-        [SerializeField] private EventoTransladar _transladarPieza;
+        [SerializeField] private EventoCoordenada _eventoSacarPieza;
+        [SerializeField] private EventoTransladar _eventoTransladarPieza;
 
         private ITablero _tablero;
+
+        private void Awake()
+        {
+            _tablero = new Tablero(_configuracion.Columnas, _configuracion.Filas);
+        }
+
+        private void OnEnable()
+        {
+            if (_eventoAgregarPieza != null)
+                _eventoAgregarPieza.Evento += AgregarUnaPieza;
+        }
+
+        private void OnDisable()
+        {
+            if (_eventoAgregarPieza != null)
+                _eventoAgregarPieza.Evento -= AgregarUnaPieza;
+        }
 
         public IPieza this[int x, int y] => _tablero[x, y];
 
@@ -23,13 +42,15 @@ namespace Boop.Bahaviour
 
         public int Alto => _tablero.Alto;
 
+        public void AgregarUnaPieza(IPieza pieza, int x, int y) => AgregarPieza(pieza, x, y);
+
         public bool AgregarPieza(IPieza pieza, int x, int y) => _tablero.AgregarPieza(pieza, x, y);
 
         public bool EliminarPieza(int x, int y)
         {
             bool sePudoEliminar = _tablero.EliminarPieza(x, y);
             if (sePudoEliminar)
-                _sacarPieza?.Invoke(x, y);
+                _eventoSacarPieza?.Invoke(x, y);
             return sePudoEliminar;
         }
 
@@ -37,7 +58,7 @@ namespace Boop.Bahaviour
         {
             bool sePudoMover = _tablero.MoverPieza(xOriginal, yOriginal, xFinal, yFinal);
             if (sePudoMover)
-                _transladarPieza?.Invoke(xOriginal, yOriginal, xFinal, yFinal);
+                _eventoTransladarPieza?.Invoke(xOriginal, yOriginal, xFinal, yFinal);
             return sePudoMover;
         }
 

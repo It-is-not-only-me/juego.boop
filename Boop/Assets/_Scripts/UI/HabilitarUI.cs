@@ -1,17 +1,13 @@
 ﻿using UnityEngine;
 using Boop.Evento;
+using System.Collections.Generic;
 
 namespace Boop.UI
 {
     public class HabilitarUI : MonoBehaviour
     {
-        [SerializeField] private EventoVoid _eventoHabilitar;
-        [SerializeField] private bool _estadoActual = true;
-
-        private void Awake()
-        {
-            Habilitar(_estadoActual);
-        }
+        [SerializeField] private EventoBool _eventoHabilitar;
+        [SerializeField] private List<GameObject> _objetos;
 
         private void OnEnable()
         {
@@ -25,16 +21,10 @@ namespace Boop.UI
                 _eventoHabilitar.Evento -= ActualizarHabilitacion;
         }
 
-        private void ActualizarHabilitacion()
+        private void ActualizarHabilitacion(bool estado)
         {
-            _estadoActual = !_estadoActual;
-            Habilitar(_estadoActual);
-        }
-
-        private void Habilitar(bool nuevoEstado)
-        {
-            for (int i = 0; i < transform.childCount; i++)
-                transform.GetChild(i).gameObject.SetActive(nuevoEstado);
+            foreach (GameObject objeto in _objetos)
+                objeto.SetActive(estado);
         }
     }
 }

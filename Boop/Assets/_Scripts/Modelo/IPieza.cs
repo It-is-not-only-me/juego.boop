@@ -10,6 +10,8 @@
 
         public bool EsUpgradeable();
 
+        public void VolverAlJugador();
+
         public bool EsIgual(IPieza pieza);
 
         public bool EsIgual(PiezaGatoGrande pieza);

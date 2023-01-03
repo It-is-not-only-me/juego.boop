@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ffa6168eccae54f9d661ac01b90abf, type: 3}
-  m_Name: Evento_HabilitarJugador2
+  m_Script: {fileID: 11500000, guid: f95093e27e41f994aae1b7156ec01f07, type: 3}
+  m_Name: Evento_AgregarPieza
   m_EditorClassIdentifier: 

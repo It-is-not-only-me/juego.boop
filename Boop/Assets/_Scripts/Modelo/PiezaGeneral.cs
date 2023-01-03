@@ -21,6 +21,7 @@
         public void SalirDelTablero()
         {
             _tablero = null;
+            VolverAlJugador();
         }
 
         public abstract bool EsIgual(IPieza pieza);
@@ -49,5 +50,7 @@
         public bool PerteneceA(IJugador jugador) => _jugador == jugador;
 
         public abstract bool EsUpgradeable();
+
+        public abstract void VolverAlJugador();
     }
 }

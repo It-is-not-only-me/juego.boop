@@ -55,8 +55,11 @@ namespace Boop.UI
             for (int i = 0; i < _configuracion.Columnas; i++)
                 for (int j = 0; j < _configuracion.Filas; j++)
                 {
-                    GameObject slot = Instantiate(_slotPrefab, transform);
-                    slot.name = $"Slot ({i}-{j})";
+                    GameObject slotGameObject = Instantiate(_slotPrefab, transform);
+                    slotGameObject.name = $"Slot ({i}-{j})";
+
+                    SlotUI slot = slotGameObject.GetComponent<SlotUI>();
+                    slot.Inicializar(i, j);
                 }
 
         }
@@ -79,8 +82,12 @@ namespace Boop.UI
         private void EliminarInformacionExistente()
         {
             while (transform.childCount > 0)
-                Destroy(transform.GetChild(0));
-            Debug.Log("Hola");
+            {
+                if (Application.isEditor)
+                    DestroyImmediate(transform.GetChild(0).gameObject);
+                else
+                    Destroy(transform.GetChild(0).gameObject);
+            }            
         }
 
     }

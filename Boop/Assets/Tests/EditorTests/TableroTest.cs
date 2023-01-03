@@ -7,13 +7,13 @@ public class TableroTest
     public class PiezaGatoChicoPrueba : IPieza
     {
         public Action EventoBoop, EventoSacarDelTablero;
-        public Action<ITablero, int, int> EventoEstablecerTablero;
+        public Action<int, int> EventoEstablecerTablero;
 
         private PiezaGatoChico _pieza;
 
-        public PiezaGatoChicoPrueba(IJugador jugador)
+        public PiezaGatoChicoPrueba(IJugador jugador, ITablero tablero)
         {
-            _pieza = new PiezaGatoChico(jugador);
+            _pieza = new PiezaGatoChico(jugador, tablero);
         }
 
         public void Boop(IPieza pieza)
@@ -34,10 +34,10 @@ public class TableroTest
             EventoBoop?.Invoke();
         }
 
-        public void EstablecerTablero(ITablero tablero, int x, int y)
+        public void EstablecerTablero(int x, int y)
         {
-            _pieza.EstablecerTablero(tablero, x, y);
-            EventoEstablecerTablero?.Invoke(tablero, x, y);
+            _pieza.EstablecerTablero(x, y);
+            EventoEstablecerTablero?.Invoke(x, y);
         }
 
         public void SalirDelTablero()
@@ -72,12 +72,13 @@ public class TableroTest
     [Test]
     public void Test01AlAgregarUnGatoAlTableroSeEstableceLaPosicionYElTableroCorrecto()
     {
-        int posicionX = 2, posicionY = 2;
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
-        bool seEstableceCorrectamente = false;
-        pieza.EventoEstablecerTablero += (tablero, x, y) => seEstableceCorrectamente = (x == posicionX && y == posicionY && tablero != null);
-
         ITablero tablero = new Tablero(_ancho, _alto);
+
+        int posicionX = 2, posicionY = 2;
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador, tablero);
+        bool seEstableceCorrectamente = false;
+        pieza.EventoEstablecerTablero += (x, y) => seEstableceCorrectamente = (x == posicionX && y == posicionY);
+
 
         tablero.AgregarPieza(pieza, posicionX, posicionY);
 
@@ -87,12 +88,13 @@ public class TableroTest
     [Test]
     public void Test02AlAgregarUnGatoAlTableroEnUnaPosicionAfueraDeRangoNoSeEstableceLaPosicionYElTablero()
     {
-        int posicionX = 10, posicionY = 10;
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
-        bool seEstableceCorrectamente = false;
-        pieza.EventoEstablecerTablero += (tablero, x, y) => seEstableceCorrectamente = true;
-
         ITablero tablero = new Tablero(_ancho, _alto);
+
+        int posicionX = 10, posicionY = 10;
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador, tablero);
+        bool seEstableceCorrectamente = false;
+        pieza.EventoEstablecerTablero += (x, y) => seEstableceCorrectamente = true;
+
 
         tablero.AgregarPieza(pieza, posicionX, posicionY);
 
@@ -102,13 +104,14 @@ public class TableroTest
     [Test]
     public void Test03AlAgregarUnGatoAlTableroEnUnaPosicionYaOcupadaNoSeEstableceLaPosicionYElTablero()
     {
-        int posicionX = 2, posicionY = 2;
-        IPieza piezaOcupa = new PiezaGatoChico(_jugador);
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
-        bool seEstableceCorrectamente = false;
-        pieza.EventoEstablecerTablero += (tablero, x, y) => seEstableceCorrectamente = true;
-
         ITablero tablero = new Tablero(_ancho, _alto);
+
+        int posicionX = 2, posicionY = 2;
+        IPieza piezaOcupa = new PiezaGatoChico(_jugador, tablero);
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador, tablero);
+        bool seEstableceCorrectamente = false;
+        pieza.EventoEstablecerTablero += (x, y) => seEstableceCorrectamente = true;
+
 
         tablero.AgregarPieza(piezaOcupa, posicionX, posicionY);
         tablero.AgregarPieza(pieza, posicionX, posicionY);
@@ -119,13 +122,14 @@ public class TableroTest
     [Test]
     public void Test04AlAgregarUnGatoBoopeaAlGatoSiEstaAUnoDeDistancia()
     {
+        ITablero tablero = new Tablero(_ancho, _alto);
+
         int posicionX = 2, posicionY = 2;
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
-        IPieza piezaBoopeadora = new PiezaGatoChico(_jugador);
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador, tablero);
+        IPieza piezaBoopeadora = new PiezaGatoChico(_jugador, tablero);
         bool seBoopea = false;
         pieza.EventoBoop += () => seBoopea = true;
 
-        ITablero tablero = new Tablero(_ancho, _alto);
 
         tablero.AgregarPieza(pieza, posicionX, posicionY);
         tablero.AgregarPieza(piezaBoopeadora, posicionX - 1, posicionY);
@@ -136,13 +140,14 @@ public class TableroTest
     [Test]
     public void Test05AlSerBoopeadoDelTableroSeSaleDeEste()
     {
+        ITablero tablero = new Tablero(_ancho, _alto);
+
         int posicionX = 0, posicionY = 0;
-        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador);
-        IPieza piezaBoopeadora = new PiezaGatoChico(_jugador);
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador, tablero);
+        IPieza piezaBoopeadora = new PiezaGatoChico(_jugador, tablero);
         bool seSacaDelTablero = false;
         pieza.EventoSacarDelTablero += () => seSacaDelTablero = true;
 
-        ITablero tablero = new Tablero(_ancho, _alto);
 
         tablero.AgregarPieza(pieza, posicionX, posicionY);
         tablero.AgregarPieza(piezaBoopeadora, posicionX + 1, posicionY);

@@ -2,7 +2,7 @@
 {
     public interface IPieza
     {
-        public void EstablecerTablero(ITablero tablero, int x, int y);
+        public void EstablecerTablero(int x, int y);
 
         public void SalirDelTablero();
 

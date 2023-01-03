@@ -21,8 +21,6 @@ public class TableroPrueba : ITablero
     {
         bool pudoAgregarPieza = _tablero.AgregarPieza(pieza, x, y);
         EventoAgregarPieza?.Invoke(pudoAgregarPieza);
-        if (pudoAgregarPieza)
-            pieza.EstablecerTablero(this, x, y);
         return pudoAgregarPieza;
     }
 

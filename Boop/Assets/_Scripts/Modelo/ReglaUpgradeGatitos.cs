@@ -58,9 +58,9 @@ namespace Boop.Modelo
                 jugador.AgregarGatoChico((PiezaGatoChico)piezaDiagonal);
                 jugador.AgregarGatoChico((PiezaGatoChico)piezaOpuesta);
 
-                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
-                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
-                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador));
+                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador, _tablero));
+                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador, _tablero));
+                jugador.AgregarGatoGrande(new PiezaGatoGrande(jugador, _tablero));
             }
         }
     }

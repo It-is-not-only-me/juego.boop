@@ -2,7 +2,7 @@
 {
     public class PiezaGatoGrande : PiezaGeneral
     {
-        public PiezaGatoGrande(IJugador jugador) : base(jugador)
+        public PiezaGatoGrande(IJugador jugador, ITablero tablero) : base(jugador, tablero)
         {
         }
 

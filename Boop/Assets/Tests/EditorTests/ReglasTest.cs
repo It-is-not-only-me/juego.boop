@@ -58,7 +58,7 @@ public class ReglasTest
 
         bool seAplicaRegla = false;
 
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 2, 2);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 2, 2);
 
         Action<bool> seAplicaReglaAccion = (seEliminaPieza) => seAplicaRegla = true;
 
@@ -89,11 +89,11 @@ public class ReglasTest
 
         bool seAplicaRegla = false;
 
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 1, 2);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 3, 3);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 4, 4);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 4, 3);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 5, 4);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 1, 2);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 3, 3);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 4, 4);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 4, 3);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 5, 4);
 
         Action<bool> seAplicaReglaAccion = (seEliminaPieza) => seAplicaRegla = true;
 
@@ -124,11 +124,11 @@ public class ReglasTest
 
         bool seAplicaRegla = false;
 
-        tablero.AgregarPieza(new PiezaGatoGrande(jugador1), 1, 2);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 3, 3);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 4, 4);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 4, 3);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 5, 4);
+        tablero.AgregarPieza(new PiezaGatoGrande(jugador1, tablero), 1, 2);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 3, 3);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 4, 4);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 4, 3);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 5, 4);
 
         Action<bool> seAplicaReglaAccion = (seEliminaPieza) => seAplicaRegla = true;
 
@@ -159,11 +159,11 @@ public class ReglasTest
 
         bool seAplicaRegla = false;
 
-        tablero.AgregarPieza(new PiezaGatoChico(jugador2), 1, 2);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 3, 3);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 4, 4);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 4, 3);
-        tablero.AgregarPieza(new PiezaGatoChico(jugador1), 5, 4);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador2, tablero), 1, 2);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 3, 3);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 4, 4);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 4, 3);
+        tablero.AgregarPieza(new PiezaGatoChico(jugador1, tablero), 5, 4);
 
         Action<bool> seAplicaReglaAccion = (seEliminaPieza) => seAplicaRegla = true;
 

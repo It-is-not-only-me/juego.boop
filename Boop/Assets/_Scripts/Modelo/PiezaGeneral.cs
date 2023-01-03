@@ -6,14 +6,14 @@
         protected int _posicionX, _posicionY;
         protected IJugador _jugador;
 
-        protected PiezaGeneral(IJugador jugador)
+        protected PiezaGeneral(IJugador jugador, ITablero tablero)
         {
             _jugador = jugador;
+            _tablero = tablero;
         }
 
-        public void EstablecerTablero(ITablero tablero, int x, int y)
+        public void EstablecerTablero(int x, int y)
         {
-            _tablero = tablero;
             _posicionX = x;
             _posicionY = y;
         }

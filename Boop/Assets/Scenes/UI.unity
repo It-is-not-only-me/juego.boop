@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 267248844}
   - component: {fileID: 267248843}
   - component: {fileID: 267248845}
+  - component: {fileID: 267248846}
   m_Layer: 5
   m_Name: Tablero
   m_TagString: Untagged
@@ -225,6 +226,21 @@ MonoBehaviour:
   m_Spacing: {x: 25, y: 25}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &267248846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267248841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6d8ceb3b8c653e41b9e26c38db87b31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _configuracion: {fileID: 11400000, guid: 8d7ac6d020aed144e802ea10e5edf447, type: 2}
+  _slotPrefab: {fileID: 1475440223856683769, guid: 8f03c2f5c9e09164b923927bbb903d9c,
+    type: 3}
 --- !u!1 &509574807
 GameObject:
   m_ObjectHideFlags: 0

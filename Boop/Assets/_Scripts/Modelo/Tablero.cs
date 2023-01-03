@@ -65,6 +65,7 @@ namespace Boop.Modelo
             IPieza pieza = this[xOriginal, yOriginal];
             this[xOriginal, yOriginal] = null;
             this[xFinal, yFinal] = pieza;
+            pieza.EstablecerTablero(xFinal, yFinal);
 
             return true;
         }

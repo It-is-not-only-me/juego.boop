@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoSiguente: {fileID: 11400000, guid: c2554b7a458d0b249933f93b8b9ad865, type: 2}
   _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &-1506217470499961781
 MonoBehaviour:

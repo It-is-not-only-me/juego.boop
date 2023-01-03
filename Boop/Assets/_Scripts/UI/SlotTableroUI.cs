@@ -8,6 +8,7 @@ namespace Boop.UI
     public class SlotTableroUI : SlotUI, IDropHandler
     {
         [SerializeField] private EventoVoid _eventoTerminarJugada;
+        [SerializeField] private EventoVoid _eventoSiguente;
 
         [Space]
 
@@ -42,17 +43,20 @@ namespace Boop.UI
                 return;
 
             SetearPieza();
+            _eventoTerminarJugada.Evento += InicializarPieza;
         }
 
         private void InicializarPieza()
         {
-            _piezaUI.Inicializar(_posicionX, _posicionY);
+            _eventoTerminarJugada.Evento -= InicializarPieza;
+            _piezaUI?.Inicializar(_posicionX, _posicionY);
+            _eventoSiguente?.Invoke();
         }
 
         public override void Sacar()
         {
-            _piezaUI = null;
             _eventoTerminarJugada.Evento -= InicializarPieza;
+            _piezaUI = null;
         }
 
         private void MoverPieza(PiezaUI piezaUI, int x, int y)
@@ -62,13 +66,13 @@ namespace Boop.UI
 
             _piezaUI = piezaUI;
             SetearPieza();
+            _piezaUI?.Inicializar(_posicionX, _posicionY);
         }
 
         private void SetearPieza()
         {
             _piezaUI.SetSlot(this);
             _piezaUI.ActualizarPadre();
-            _eventoTerminarJugada.Evento += InicializarPieza;
         }
     }
 }

@@ -158,4 +158,24 @@ public class TableroTest
 
         Assert.IsTrue(seSacaDelTablero);
     }
+
+    [Test]
+    public void Test06SeBoopeaDespuesDeSerBoopeado()
+    {
+        ITablero tablero = new Tablero(_ancho, _alto);
+
+        int posicionX = 2, posicionY = 2;
+        PiezaGatoChicoPrueba pieza = new PiezaGatoChicoPrueba(_jugador, tablero);
+        IPieza piezaBoopeadora = new PiezaGatoChico(_jugador, tablero);
+        bool seBoopea = false;
+
+
+        tablero.AgregarPieza(pieza, posicionX, posicionY);
+        tablero.AgregarPieza(piezaBoopeadora, posicionX - 1, posicionY);
+
+        pieza.EventoBoop += () => seBoopea = true;
+        tablero.AgregarPieza(piezaBoopeadora, posicionX, posicionY);
+
+        Assert.IsTrue(seBoopea);
+    }
 }

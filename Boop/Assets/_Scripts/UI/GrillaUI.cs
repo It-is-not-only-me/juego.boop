@@ -53,14 +53,14 @@ namespace Boop.UI
                                                    _configuracion.Padding,
                                                    _configuracion.Espaciado);
 
-            for (int i = 0; i < _configuracion.Columnas; i++)
-                for (int j = 0; j < _configuracion.Filas; j++)
+            for (int i = 0; i < _configuracion.Filas; i++)
+                for (int j = 0; j < _configuracion.Columnas; j++)
                 {
                     GameObject slotGameObject = Instantiate(_slotPrefab, transform);
-                    slotGameObject.name = $"Slot ({i}-{j})";
+                    slotGameObject.name = $"Slot ({j}-{i})";
 
                     SlotTableroUI slot = slotGameObject.GetComponent<SlotTableroUI>();
-                    slot.Inicializar(i, j);
+                    slot.Inicializar(j, i);
                 }
 
         }

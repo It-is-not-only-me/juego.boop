@@ -170,7 +170,7 @@ MonoBehaviour:
   _tablero: {fileID: 1513468396}
   _jugador1: {fileID: 1718597675}
   _jugador2: {fileID: 1756688949}
-  _terminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _terminarJugada: {fileID: 11400000, guid: c2554b7a458d0b249933f93b8b9ad865, type: 2}
   _empezarJuego: {fileID: 11400000, guid: 7fc716037d092084d8f9bc554bb0cb48, type: 2}
   _habilitarJugador1: {fileID: 11400000, guid: d94e02fb7fa24fb4e8c426d199b9f6fe, type: 2}
   _habilitarJugador2: {fileID: 11400000, guid: fe14a5168aabf4f45a68ce153e2ed420, type: 2}

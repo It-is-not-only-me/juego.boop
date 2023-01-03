@@ -123,6 +123,56 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &185815388
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 185815389}
+  - component: {fileID: 185815390}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &185815389
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185815388}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &185815390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185815388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90aeb40cf32f2a541afe935b58664066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tablero: {fileID: 1513468396}
+  _jugador1: {fileID: 1718597675}
+  _jugador2: {fileID: 1756688949}
+  _terminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _habilitarJugador1: {fileID: 11400000, guid: d94e02fb7fa24fb4e8c426d199b9f6fe, type: 2}
+  _habilitarJugador2: {fileID: 11400000, guid: fe14a5168aabf4f45a68ce153e2ed420, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,8 +400,55 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1513468394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1513468395}
+  - component: {fileID: 1513468396}
+  m_Layer: 0
+  m_Name: Tablero
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1513468395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513468394}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513468396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513468394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80687d38b4fc5864a81da42b68655d99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _configuracion: {fileID: 11400000, guid: 8d7ac6d020aed144e802ea10e5edf447, type: 2}
+  _sacarPieza: {fileID: 11400000, guid: be76fac2a8a94e54ba558567e1d45ecb, type: 2}
+  _transladarPieza: {fileID: 11400000, guid: 4eb8e2fc9ad3aa648a43bce357b1e3b5, type: 2}
 --- !u!1 &1718597673
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +479,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1718597675
 MonoBehaviour:
@@ -396,7 +493,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591a8a33672e68846a7188e8ba5e9f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agregarPieza: {fileID: 11400000, guid: d84740398fe2f2f4598720b1ac6a0559, type: 2}
+  _configuracion: {fileID: 11400000, guid: 195cea9e94dea4141b34da6944105d9c, type: 2}
+  _tablero: {fileID: 1513468396}
+  _agregarGatito: {fileID: 11400000, guid: d84740398fe2f2f4598720b1ac6a0559, type: 2}
+  _agregarGato: {fileID: 11400000, guid: 268a8ba7033f6c245adc309200d4c760, type: 2}
 --- !u!1 &1756688948
 GameObject:
   m_ObjectHideFlags: 0
@@ -426,7 +526,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591a8a33672e68846a7188e8ba5e9f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _agregarPieza: {fileID: 11400000, guid: d84740398fe2f2f4598720b1ac6a0559, type: 2}
+  _configuracion: {fileID: 11400000, guid: 195cea9e94dea4141b34da6944105d9c, type: 2}
+  _tablero: {fileID: 1513468396}
+  _agregarGatito: {fileID: 11400000, guid: ea0c5b09ae07adf47a53582d43287f1a, type: 2}
+  _agregarGato: {fileID: 11400000, guid: f6155b9556c97d041bdc362a7dc10e4f, type: 2}
 --- !u!4 &1756688950
 Transform:
   m_ObjectHideFlags: 0
@@ -440,5 +543,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

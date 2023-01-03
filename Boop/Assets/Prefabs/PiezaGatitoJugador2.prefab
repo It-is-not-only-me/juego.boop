@@ -90,3 +90,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventoSacarPieza: {fileID: 11400000, guid: be76fac2a8a94e54ba558567e1d45ecb, type: 2}
+  _eventoTransladarPieza: {fileID: 11400000, guid: 4eb8e2fc9ad3aa648a43bce357b1e3b5, type: 2}
+  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}

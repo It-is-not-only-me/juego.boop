@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e3c5fbcaa585b540abf8fc675581e3c, type: 3}
-  m_Name: Configuracion_Inventario
+  m_Script: {fileID: 11500000, guid: 35a48ef43029b7d4e8c7e6e7f4f16e4e, type: 3}
+  m_Name: Evento_Transladar
   m_EditorClassIdentifier: 
-  _cantidadMaximaGatitos: 8
-  _cantidadDeGatitos: 8
-  _cantidadMaximaGatos: 8
-  _cantidadDeGatos: 0

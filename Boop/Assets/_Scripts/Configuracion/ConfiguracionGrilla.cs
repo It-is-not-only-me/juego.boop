@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Boop.UI
+namespace Boop.Configuracion
 {
     [CreateAssetMenu(fileName = "Configuracion grilla", menuName = "Boop/Configuracion/Grilla")]
     public class ConfiguracionGrilla : ScriptableObject

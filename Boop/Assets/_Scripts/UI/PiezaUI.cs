@@ -108,7 +108,7 @@ namespace Boop.UI
                 return;
 
             _slot?.Sacar();
-            _eventoTransladarPieza?.Invoke(this, xFinal, yFinal);
+            _eventoMoverPieza?.Invoke(this, xFinal, yFinal);
         }
 
         public void OnBeginDrag(PointerEventData eventData)

@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45a4e99b5fc60de4b80a928d7356ae52, type: 3}
-  m_Name: Evento_AgregarPieza
+  m_Name: Evento_AgregarGatoJugador1
   m_EditorClassIdentifier: 

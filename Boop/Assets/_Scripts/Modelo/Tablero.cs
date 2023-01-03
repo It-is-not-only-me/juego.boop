@@ -68,6 +68,14 @@ namespace Boop.Modelo
 
             return true;
         }
+
+        public void AplicarRegla(IRegla regla)
+        {
+            for (int i = 0; i < Ancho; i++)
+                for (int j = 0; j < Alto; j++)
+                    regla.Aplicar(this[i, j], i, j);
+        }
+
         public bool HayPiezaEn(int x, int y) => this[x, y] != null;
 
         public bool EnRango(int x, int y) => 0 <= x && x < _ancho && 0 <= y && y < _alto;

@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Boop.UI
+namespace Boop.Evento
 {
     [CreateAssetMenu(fileName = "Evento void", menuName = "Boop/Evento/Void")]
     public class EventoVoid : ScriptableObject

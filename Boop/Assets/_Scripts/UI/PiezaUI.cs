@@ -58,6 +58,7 @@ namespace Boop.UI
 
         public void SetSlot(SlotUI slot)
         {
+            _slot?.Sacar();
             _slot = slot;
             _padre = slot.transform;
         }
@@ -65,7 +66,6 @@ namespace Boop.UI
         public void OnBeginDrag(PointerEventData eventData)
         {
             _getImagen.raycastTarget = false;
-            _slot?.Sacar();
             _padre = transform.parent;
             
             transform.SetParent(transform.root);

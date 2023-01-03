@@ -9,14 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a97ddc25d8c008a42ba6fe9a7108880d, type: 3}
-  m_Name: Configuracion tablero
+  m_Script: {fileID: 11500000, guid: 6179663cc6c567e4b80cd62f8466d0bb, type: 3}
+  m_Name: Evento_AgregaGatitoDeJugador2
   m_EditorClassIdentifier: 
-  _filas: 6
-  _columnas: 6
-  _espaciado: {x: 25, y: 25}
-  _padding:
-    m_Left: 30
-    m_Right: 30
-    m_Top: 30
-    m_Bottom: 30

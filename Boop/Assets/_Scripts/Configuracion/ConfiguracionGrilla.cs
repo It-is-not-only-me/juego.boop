@@ -2,8 +2,8 @@
 
 namespace Boop.UI
 {
-    [CreateAssetMenu(fileName = "Configuracion tablero", menuName = "Boop/Configuracion/Tablero")]
-    public class ConfiguracionTablero : ScriptableObject
+    [CreateAssetMenu(fileName = "Configuracion grilla", menuName = "Boop/Configuracion/Grilla")]
+    public class ConfiguracionGrilla : ScriptableObject
     {
         [SerializeField] private int _filas, _columnas;
         [SerializeField] private Vector2 _espaciado;

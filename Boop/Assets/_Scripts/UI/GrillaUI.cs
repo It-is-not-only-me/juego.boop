@@ -6,9 +6,9 @@ using UnityEngine.UI;
 namespace Boop.UI
 {
     [RequireComponent(typeof(RectTransform), typeof(GridLayoutGroup))]
-    public class TableroUI : MonoBehaviour
+    public class GrillaUI : MonoBehaviour
     {
-        [SerializeField] private ConfiguracionTablero _configuracion;
+        [SerializeField] private ConfiguracionGrilla _configuracion;
         [SerializeField] private GameObject _slotPrefab;
 
         private RectTransform _rectTransform;
@@ -33,11 +33,6 @@ namespace Boop.UI
             }
         }
 
-        private void Start()
-        {
-            GenerarTablero();
-        }
-
         [ContextMenu("Recalcular tablero")]
         private void GenerarTablero()
         {
@@ -58,7 +53,7 @@ namespace Boop.UI
                     GameObject slotGameObject = Instantiate(_slotPrefab, transform);
                     slotGameObject.name = $"Slot ({i}-{j})";
 
-                    SlotUI slot = slotGameObject.GetComponent<SlotUI>();
+                    SlotTableroUI slot = slotGameObject.GetComponent<SlotTableroUI>();
                     slot.Inicializar(i, j);
                 }
 

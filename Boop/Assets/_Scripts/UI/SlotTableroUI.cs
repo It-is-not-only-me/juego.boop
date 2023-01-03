@@ -8,15 +8,31 @@ namespace Boop.UI
     public class SlotTableroUI : SlotUI, IDropHandler
     {
         [SerializeField] private EventoVoid EventoInicializar;
+
+        [Space]
+
+        [SerializeField] private EventoMovimiento _eventoMoverPieza;
         
-        private int _columna, _fila;
+        private int _posicionX, _posicionY;
 
         private PiezaUI _piezaUI;
 
-        public void Inicializar(int columna, int fila)
+        private void OnEnable()
         {
-            _columna = columna;
-            _fila = fila;
+            if (_eventoMoverPieza != null)
+                _eventoMoverPieza.Evento += MoverPieza;
+        }
+
+        private void OnDisable()
+        {
+            if (_eventoMoverPieza != null)
+                _eventoMoverPieza.Evento -= MoverPieza;
+        }
+
+        public void Inicializar(int x, int y)
+        {
+            _posicionX = x;
+            _posicionY = y;
         }
 
         public void OnDrop(PointerEventData eventData)
@@ -25,19 +41,33 @@ namespace Boop.UI
             if (!objeto.TryGetComponent(out _piezaUI))
                 return;
 
-            _piezaUI.SetSlot(this);
-            EventoInicializar.Evento += InicializarPieza;
+            SetearPieza();
         }
 
         private void InicializarPieza()
         {
-            _piezaUI.Inicializar(_columna, _fila);
+            _piezaUI.Inicializar(_posicionX, _posicionY);
         }
 
         public override void Sacar()
         {
             _piezaUI = null;
             EventoInicializar.Evento -= InicializarPieza;
+        }
+
+        private void MoverPieza(PiezaUI piezaUI, int x, int y)
+        {
+            if (_posicionX != x || _posicionY != y)
+                return;
+
+            _piezaUI = piezaUI;
+            SetearPieza();
+        }
+
+        private void SetearPieza()
+        {
+            _piezaUI.SetSlot(this);
+            EventoInicializar.Evento += InicializarPieza;
         }
     }
 }

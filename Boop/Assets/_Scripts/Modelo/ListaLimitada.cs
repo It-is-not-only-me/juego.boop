@@ -7,9 +7,9 @@ namespace Boop.Modelo
         private List<TTipo> _lista;
         private int _limite;
 
-        public ListaLimitada(List<TTipo> lista, int limite)
+        public ListaLimitada(int limite, List<TTipo> lista = null)
         {
-            _lista = lista;
+            _lista = lista == null ? new List<TTipo>() : lista;
             _limite = limite;
         }
 

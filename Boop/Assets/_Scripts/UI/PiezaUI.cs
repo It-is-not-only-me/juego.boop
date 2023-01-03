@@ -10,6 +10,11 @@ namespace Boop.UI
     public class PiezaUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private EventoCoordenada _eventoSacarPieza;
+        [SerializeField] private EventoTransladar _eventoTransladarPieza;
+
+        [Space]
+
+        [SerializeField] private EventoMovimiento _eventoMoverPieza;
 
         private IPieza _pieza;
         private int _posicionX = -1, _posicionY = -1;
@@ -51,6 +56,24 @@ namespace Boop.UI
             }
         }
 
+        private void OnEnable()
+        {
+            if (_eventoSacarPieza != null)
+                _eventoSacarPieza.Evento += SacarPieza;
+
+            if (_eventoTransladarPieza != null)
+                _eventoTransladarPieza.Evento += TransladarPieza;
+        }
+
+        private void OnDisable()
+        {
+            if (_eventoSacarPieza != null)
+                _eventoSacarPieza.Evento -= SacarPieza;
+
+            if (_eventoTransladarPieza != null)
+                _eventoTransladarPieza.Evento -= TransladarPieza;
+        }
+
         public void EstablecerPieza(IPieza pieza) => _pieza = pieza;
 
         public void Inicializar(int x, int y)
@@ -70,13 +93,22 @@ namespace Boop.UI
             _padre = slot.transform;
         }
 
-        public void SacarPieza(int x, int y)
+        private void SacarPieza(int x, int y)
         {
             if (_posicionX != x || _posicionY != y)
                 return;
 
             _slot?.Sacar();
             Destroy(this);
+        }
+
+        private void TransladarPieza(int xOriginal, int yOriginal, int xFinal, int yFinal)
+        {
+            if (_posicionX != xOriginal || _posicionY != yOriginal)
+                return;
+
+            _slot?.Sacar();
+            _eventoTransladarPieza?.Invoke(this, xFinal, yFinal);
         }
 
         public void OnBeginDrag(PointerEventData eventData)

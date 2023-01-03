@@ -11,8 +11,8 @@ public class JugadorPrueba : IJugador
 
     public JugadorPrueba(int cantidadMaximaGatitos, int cantidadMaximaGatos)
     {
-        ListaLimitada<PiezaGatoChico> listaGatitos = new ListaLimitada<PiezaGatoChico>(new List<PiezaGatoChico>(), cantidadMaximaGatitos);
-        ListaLimitada<PiezaGatoGrande> listaGatos = new ListaLimitada<PiezaGatoGrande>(new List<PiezaGatoGrande>(), cantidadMaximaGatos);
+        ListaLimitada<PiezaGatoChico> listaGatitos = new ListaLimitada<PiezaGatoChico>(cantidadMaximaGatitos);
+        ListaLimitada<PiezaGatoGrande> listaGatos = new ListaLimitada<PiezaGatoGrande>(cantidadMaximaGatos);
 
         _inventario = new Inventario(listaGatitos, listaGatos);
     }

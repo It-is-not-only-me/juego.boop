@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Boop.Bahaviour
 {
+
     public class AgregarBehavouir : MonoBehaviour
     {
         [SerializeField] private TableroBehaviour _tablero;

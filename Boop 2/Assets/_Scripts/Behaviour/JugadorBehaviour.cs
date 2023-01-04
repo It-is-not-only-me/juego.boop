@@ -2,10 +2,11 @@ using UnityEngine;
 using Boop.Modelo;
 using Boop.Configuracion;
 using Boop.Evento;
+using Boop.UI;
 
 namespace Boop.Bahaviour
 {
-    public class JugadorBehaviour : MonoBehaviour, IJugador
+    public class JugadorBehaviour : MonoBehaviour, IJugador, IReiniciable
     {
         [SerializeField] private ConfiguracionInventario _configuracion;
         [SerializeField] private TableroBehaviour _tablero;
@@ -20,13 +21,13 @@ namespace Boop.Bahaviour
         [SerializeField] private EventoVoid _eventoSacarGatito;
         [SerializeField] private EventoVoid _eventoSacarGato;
 
+        [Space]
+
+        [SerializeField] private EventoVoid _eventoReiniciar;
+
         private Inventario _inventario;
 
-        private void Awake()
-        {
-            _inventario = new Inventario(new ListaLimitada<PiezaGatoChico>(_configuracion.CantidadMaximaGatitos),
-                                         new ListaLimitada<PiezaGatoGrande>(_configuracion.CantidadMaximaGatos));
-        }
+        private void Awake() => Inicializar();
 
         private void OnEnable()
         {
@@ -35,6 +36,9 @@ namespace Boop.Bahaviour
 
             if (_eventoSacarGato != null)
                 _eventoSacarGato.Evento += SacarGato;
+
+            if (_eventoReiniciar != null)
+                _eventoReiniciar.Evento += Reiniciar;
         }
 
         private void OnDisable()
@@ -44,7 +48,18 @@ namespace Boop.Bahaviour
 
             if (_eventoSacarGato != null)
                 _eventoSacarGato.Evento -= SacarGato;
+
+            if (_eventoReiniciar != null)
+                _eventoReiniciar.Evento -= Reiniciar;
         }
+
+        private void Inicializar()
+        {
+            _inventario = new Inventario(new ListaLimitada<PiezaGatoChico>(_configuracion.CantidadMaximaGatitos),
+                                         new ListaLimitada<PiezaGatoGrande>(_configuracion.CantidadMaximaGatos));
+        }
+
+        public void Reiniciar() => Inicializar();
 
         public bool AgregarGatoChico(PiezaGatoChico pieza)
         {

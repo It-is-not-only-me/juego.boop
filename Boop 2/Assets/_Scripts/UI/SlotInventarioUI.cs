@@ -90,7 +90,10 @@ namespace Boop.UI
             _seNecesitaRegenerar = false;
 
             while (_posicion.childCount > 0)
-                Destroy(_posicion.GetChild(0).gameObject);
+                if (Application.isEditor)
+                    DestroyImmediate(_posicion.GetChild(0).gameObject);
+                else
+                    Destroy(_posicion.GetChild(0).gameObject);
         }
     }
 }

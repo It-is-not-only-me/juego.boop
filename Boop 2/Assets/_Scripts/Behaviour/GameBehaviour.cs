@@ -1,6 +1,7 @@
 ﻿using Boop.Configuracion;
 using Boop.Evento;
 using Boop.Modelo;
+using Boop.UI;
 using UnityEngine;
 
 namespace Boop.Bahaviour
@@ -15,10 +16,6 @@ namespace Boop.Bahaviour
 
         [SerializeField] private TableroBehaviour _tablero;
         [SerializeField] private JugadorBehaviour _jugador1, _jugador2;
-
-        [Space]
-
-        [SerializeField] private EventoVoid _eventoEmpezarJuego;
         [SerializeField] private ConfiguracionInicio _configuracion;
 
         [Space]
@@ -31,24 +28,19 @@ namespace Boop.Bahaviour
 
         private IRegla _regla;
         private EstadoJuego _estadoActual;
-        
+
+        private void Start() => Empezar();
 
         private void OnEnable()
         {
             if (_eventTerminarJugada != null)
                 _eventTerminarJugada.Evento += AvanzarJuego;
-
-            if (_eventoEmpezarJuego != null)
-                _eventoEmpezarJuego.Evento += Empezar;
         }
 
         private void OnDisable()
         {
             if (_eventTerminarJugada != null)
                 _eventTerminarJugada.Evento -= AvanzarJuego;
-
-            if (_eventoEmpezarJuego != null)
-                _eventoEmpezarJuego.Evento -= Empezar;
         }
 
         private void Empezar()

@@ -4,7 +4,7 @@ using Boop.Evento;
 
 namespace Boop.UI
 {
-    public class BotonEmpezarUI : MonoBehaviour, IPointerClickHandler
+    public class BotonEventoUI : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] private EventoVoid _eventoHabilitar;
 

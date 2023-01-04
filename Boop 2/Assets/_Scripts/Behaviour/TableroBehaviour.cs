@@ -6,7 +6,7 @@ using Boop.UI;
 
 namespace Boop.Bahaviour
 {
-    public class TableroBehaviour : MonoBehaviour, ITablero
+    public class TableroBehaviour : MonoBehaviour, ITablero, IReiniciable
     {
         [SerializeField] private ConfiguracionGrilla _configuracion;
 
@@ -18,6 +18,10 @@ namespace Boop.Bahaviour
 
         [SerializeField] private EventoCoordenada _eventoSacarPieza;
         [SerializeField] private EventoTransladar _eventoTransladarPieza;
+
+        [Space]
+
+        [SerializeField] private EventoVoid _eventoReiniciar;
 
         private ITablero _tablero;
 
@@ -31,6 +35,23 @@ namespace Boop.Bahaviour
         public int Ancho => _tablero.Ancho;
 
         public int Alto => _tablero.Alto;
+
+        private void OnEnable()
+        {
+            if (_eventoReiniciar != null)
+                _eventoReiniciar.Evento += Reiniciar;
+        }
+
+        private void OnDisable()
+        {
+            if (_eventoReiniciar != null)
+                _eventoReiniciar.Evento -= Reiniciar;
+        }
+
+        public void Reiniciar()
+        {
+            _tablero = new Tablero(_configuracion.Columnas, _configuracion.Filas);
+        }
 
         public bool AgregarPieza(IPieza pieza, int x, int y)
         {

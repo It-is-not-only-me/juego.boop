@@ -6,11 +6,11 @@ namespace Boop.UI
 {
     public class BotonEmpezarUI : MonoBehaviour, IPointerClickHandler
     {
-        [SerializeField] private EventoBool _eventoHabilitar;
+        [SerializeField] private EventoVoid _eventoHabilitar;
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            _eventoHabilitar?.Invoke(true);
+            _eventoHabilitar?.Invoke();
         }
     }
 }

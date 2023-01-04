@@ -10,7 +10,9 @@ namespace Boop.Bahaviour
     {
         [SerializeField] private ConfiguracionGrilla _configuracion;
 
-        [SerializeField] private EventoAgregarPieza _eventoAgregarPieza;
+        [Space]
+
+        [SerializeField] private EventoVoid _eventoSiguienteTurno;
 
         [Space]
 
@@ -24,27 +26,18 @@ namespace Boop.Bahaviour
             _tablero = new Tablero(_configuracion.Columnas, _configuracion.Filas);
         }
 
-        private void OnEnable()
-        {
-            if (_eventoAgregarPieza != null)
-                _eventoAgregarPieza.Evento += AgregarUnaPieza;
-        }
-
-        private void OnDisable()
-        {
-            if (_eventoAgregarPieza != null)
-                _eventoAgregarPieza.Evento -= AgregarUnaPieza;
-        }
-
         public IPieza this[int x, int y] => _tablero[x, y];
 
         public int Ancho => _tablero.Ancho;
 
         public int Alto => _tablero.Alto;
 
-        public void AgregarUnaPieza(IPieza pieza, int x, int y) => AgregarPieza(pieza, x, y);
-
-        public bool AgregarPieza(IPieza pieza, int x, int y) => _tablero.AgregarPieza(pieza, x, y);
+        public bool AgregarPieza(IPieza pieza, int x, int y)
+        {
+            bool sePudoAgregar = _tablero.AgregarPieza(pieza, x, y);
+            _eventoSiguienteTurno?.Invoke();
+            return sePudoAgregar;
+        }
 
         public bool EliminarPieza(int x, int y)
         {

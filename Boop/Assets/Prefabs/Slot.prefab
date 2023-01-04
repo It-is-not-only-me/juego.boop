@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1475440223856683718}
   - component: {fileID: 1475440223856683719}
   - component: {fileID: 8258610359964845153}
-  - component: {fileID: -1506217470499961781}
+  - component: {fileID: 5738685754130079766}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -90,10 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoSiguente: {fileID: 11400000, guid: c2554b7a458d0b249933f93b8b9ad865, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
---- !u!114 &-1506217470499961781
+--- !u!114 &5738685754130079766
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

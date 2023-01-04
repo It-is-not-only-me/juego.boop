@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 185815389}
   - component: {fileID: 185815390}
+  - component: {fileID: 185815391}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -170,10 +171,32 @@ MonoBehaviour:
   _tablero: {fileID: 1513468396}
   _jugador1: {fileID: 1718597675}
   _jugador2: {fileID: 1756688949}
-  _terminarJugada: {fileID: 11400000, guid: c2554b7a458d0b249933f93b8b9ad865, type: 2}
-  _empezarJuego: {fileID: 11400000, guid: 7fc716037d092084d8f9bc554bb0cb48, type: 2}
-  _habilitarJugador1: {fileID: 11400000, guid: d94e02fb7fa24fb4e8c426d199b9f6fe, type: 2}
-  _habilitarJugador2: {fileID: 11400000, guid: fe14a5168aabf4f45a68ce153e2ed420, type: 2}
+  _eventoEmpezarJuego: {fileID: 11400000, guid: 7fc716037d092084d8f9bc554bb0cb48, type: 2}
+  _configuracion: {fileID: 11400000, guid: aa9540679098f3a46a6a07f3bcffc404, type: 2}
+  _eventoHabilitarJugador1: {fileID: 11400000, guid: 8918e62fe5c7baf4bbbcb4dd05efc00f, type: 2}
+  _eventoDeshabilitarJugador1: {fileID: 11400000, guid: e13bcdcaf2df1c244853d031d74abe0c, type: 2}
+  _eventoHabilitarJugador2: {fileID: 11400000, guid: aa3f777f32e02be41807b3571bd8f30b, type: 2}
+  _eventoDeshabilitarJugador2: {fileID: 11400000, guid: e63d844984e314f44a71656439b18b4d, type: 2}
+  _eventTerminarJugada: {fileID: 11400000, guid: 7abee784209932a4bbb6fc89ad012833, type: 2}
+--- !u!114 &185815391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185815388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c98da0ad34ff7fa449b707526b5bf758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tablero: {fileID: 1513468396}
+  _jugador1: {fileID: 1718597675}
+  _jugador2: {fileID: 1756688949}
+  _agregarGatitoJugador1: {fileID: 11400000, guid: 2923b68b4645e9940a3778b35d5f539b, type: 2}
+  _agregarGatitoJugador2: {fileID: 11400000, guid: 9cae24dc1fdb6964697feb3065d1bb29, type: 2}
+  _agregarGatoJugador1: {fileID: 11400000, guid: 9227076376eb883478ad1dc650a4aa49, type: 2}
+  _agregarGatoJugador2: {fileID: 11400000, guid: 08c4896a76be4504a908bbb3d1fb19b4, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,9 +471,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _configuracion: {fileID: 11400000, guid: 8d7ac6d020aed144e802ea10e5edf447, type: 2}
-  _eventoAgregarPieza: {fileID: 11400000, guid: e39830f2361dc78428eec392a7d2ef12, type: 2}
-  _eventoSacarPieza: {fileID: 11400000, guid: be76fac2a8a94e54ba558567e1d45ecb, type: 2}
-  _eventoTransladarPieza: {fileID: 11400000, guid: 4eb8e2fc9ad3aa648a43bce357b1e3b5, type: 2}
+  _eventoSiguienteTurno: {fileID: 11400000, guid: 7abee784209932a4bbb6fc89ad012833, type: 2}
+  _eventoSacarPieza: {fileID: 11400000, guid: ed3bcaee3064ab34eb7bad0d79a15f7e, type: 2}
+  _eventoTransladarPieza: {fileID: 11400000, guid: e3a75f258518bb541ab46592852e6e9e, type: 2}
 --- !u!1 &1718597673
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,10 +520,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _configuracion: {fileID: 11400000, guid: 195cea9e94dea4141b34da6944105d9c, type: 2}
   _tablero: {fileID: 1513468396}
-  _eventoAgregarGatito: {fileID: 11400000, guid: d84740398fe2f2f4598720b1ac6a0559, type: 2}
-  _eventoAgregarGato: {fileID: 11400000, guid: 268a8ba7033f6c245adc309200d4c760, type: 2}
-  _eventoSacarGatito: {fileID: 11400000, guid: dbf5d2335fb56e54a8c16f5b2e81682e, type: 2}
-  _eventoSacarGato: {fileID: 11400000, guid: 7c4e30dc0199f9a438b97d2246246182, type: 2}
+  _eventoAgregarGatito: {fileID: 11400000, guid: 3a9be094b9835a647a6c907f36bc1f73, type: 2}
+  _eventoAgregarGato: {fileID: 11400000, guid: c481367778e4b6644b1ba0ba686be861, type: 2}
+  _eventoSacarGatito: {fileID: 11400000, guid: c505112ec624eaf4aacc3193f25ec2fa, type: 2}
+  _eventoSacarGato: {fileID: 11400000, guid: c67c37cfc889c3f488bc1c3f23e43b32, type: 2}
 --- !u!1 &1756688948
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,10 +555,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _configuracion: {fileID: 11400000, guid: 195cea9e94dea4141b34da6944105d9c, type: 2}
   _tablero: {fileID: 1513468396}
-  _eventoAgregarGatito: {fileID: 11400000, guid: ea0c5b09ae07adf47a53582d43287f1a, type: 2}
-  _eventoAgregarGato: {fileID: 11400000, guid: f6155b9556c97d041bdc362a7dc10e4f, type: 2}
-  _eventoSacarGatito: {fileID: 11400000, guid: b2f3c93c4912efb4ca7c445e17ef3f6f, type: 2}
-  _eventoSacarGato: {fileID: 11400000, guid: 7c4e30dc0199f9a438b97d2246246182, type: 2}
+  _eventoAgregarGatito: {fileID: 11400000, guid: f42e296669829994c9b0419ef48333ec, type: 2}
+  _eventoAgregarGato: {fileID: 11400000, guid: 90ac5f9435480f14e84ede5d9f8419ca, type: 2}
+  _eventoSacarGatito: {fileID: 11400000, guid: 6ef98f0ed2b271340aebbf9c2fd3083e, type: 2}
+  _eventoSacarGato: {fileID: 11400000, guid: ef200f7a57f93624196a34265902447c, type: 2}
 --- !u!4 &1756688950
 Transform:
   m_ObjectHideFlags: 0

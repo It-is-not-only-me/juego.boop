@@ -9,21 +9,13 @@ namespace Boop.UI
     [RequireComponent(typeof(Image), typeof(RectTransform))]
     public class PiezaUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        [SerializeField] private EventoCoordenada _eventoSacarPieza;
-        [SerializeField] private EventoTransladar _eventoTransladarPieza;
+        [SerializeField] private EventoVoid _eventoTerminarTurno;
 
         [Space]
 
-        [SerializeField] private EventoMovimiento _eventoMoverPieza;
-        [SerializeField] private EventoAgregarPieza _eventoAgregarPieza;
+        [SerializeField] private EventoCoordenada _eventoAgregarPieza;
+        [SerializeField] private EventoVoid _eventoHabilitarBoton;
 
-        private IPieza _pieza;
-        private int _posicionX = -1, _posicionY = -1;
-        private bool _posicionado;
-
-        private SlotUI _slot;
-        private Transform _padre;
-        
         private Canvas _canvas;
         private Canvas _getCanvas
         {
@@ -57,64 +49,17 @@ namespace Boop.UI
             }
         }
 
-        private void OnEnable()
-        {
-            if (_eventoSacarPieza != null)
-                _eventoSacarPieza.Evento += SacarPieza;
+        private int _posicionX, _posicionY;
+        private SlotUI _slot;
+        private Transform _padre;
+        private bool _moverPieza = false;
 
-            if (_eventoTransladarPieza != null)
-                _eventoTransladarPieza.Evento += TransladarPieza;
-        }
-
-        private void OnDisable()
-        {
-            if (_eventoSacarPieza != null)
-                _eventoSacarPieza.Evento -= SacarPieza;
-
-            if (_eventoTransladarPieza != null)
-                _eventoTransladarPieza.Evento -= TransladarPieza;
-        }
-
-        public void EstablecerPieza(IPieza pieza) => _pieza = pieza;
-
-        public void Inicializar(int x, int y)
-        {
-            _posicionX = x;
-            _posicionY = y;
-            _eventoAgregarPieza?.Invoke(_pieza, x, y);
-
-            _getImagen.raycastTarget = false;
-            _posicionado = true;
-        }
-
-        public void SetSlot(SlotUI slot)
-        {
-            _slot?.Sacar();
-            _slot = slot;
-            _padre = slot.transform;
-        }
-
-        private void SacarPieza(int x, int y)
-        {
-            if (_posicionX != x || _posicionY != y)
-                return;
-
-            _slot?.Sacar();
-            Destroy(gameObject);
-        }
-
-        private void TransladarPieza(int xOriginal, int yOriginal, int xFinal, int yFinal)
-        {
-            if (_posicionX != xOriginal || _posicionY != yOriginal)
-                return;
-
-            _slot?.Sacar();
-            _eventoMoverPieza?.Invoke(this, xFinal, yFinal);
-        }
+        public void Inicializar(SlotUI slot) => _slot = slot;
 
         public void OnBeginDrag(PointerEventData eventData)
         {
             _getImagen.raycastTarget = false;
+
             _padre = transform.parent;
             
             transform.SetParent(transform.root);
@@ -128,14 +73,43 @@ namespace Boop.UI
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            ActualizarPadre();
-            if (!_posicionado)
-                _imagen.raycastTarget = true;
+            _getImagen.raycastTarget = true;
+            transform.SetParent(_padre);
         }
 
-        public void ActualizarPadre()
+        public void SetearCoordenada(int x, int y)
         {
+            _posicionX = x;
+            _posicionY = y;
+
+            if (_eventoTerminarTurno != null && !_moverPieza)
+            {
+                _moverPieza = true;
+                _eventoTerminarTurno.Evento += AsignarPosicion;
+                _eventoHabilitarBoton?.Invoke();
+            }
+        }
+
+        public void SetearPadre(SlotUI slot)
+        {
+            _slot?.Sacar();
+            _slot = slot;
+            _padre = _slot.transform;
             transform.SetParent(_padre);
+        }
+
+        public void Eliminar()
+        {
+            Destroy(gameObject);
+        }
+
+        private void AsignarPosicion()
+        {
+            _eventoAgregarPieza?.Invoke(_posicionX, _posicionY);
+            _getImagen.raycastTarget = false;
+            
+            if (_eventoTerminarTurno != null)
+                _eventoTerminarTurno.Evento -= AsignarPosicion;
         }
     }
 }

@@ -4,30 +4,19 @@ using Boop.Evento;
 
 namespace Boop.UI
 {
-
+    [RequireComponent(typeof(RectTransform))]
     public class SlotTableroUI : SlotUI, IDropHandler
     {
-        [SerializeField] private EventoVoid _eventoTerminarJugada;
-        [SerializeField] private EventoVoid _eventoSiguente;
-
-        [Space]
-
-        [SerializeField] private EventoMovimiento _eventoMoverPieza;
-        
         private int _posicionX, _posicionY;
+        private PiezaUI _pieza;
 
-        private PiezaUI _piezaUI;
-
-        private void OnEnable()
+        public void OnDrop(PointerEventData eventData)
         {
-            if (_eventoMoverPieza != null)
-                _eventoMoverPieza.Evento += MoverPieza;
-        }
+            GameObject objeto = eventData.pointerDrag;
+            if (!objeto.TryGetComponent(out PiezaUI pieza))
+                return;
 
-        private void OnDisable()
-        {
-            if (_eventoMoverPieza != null)
-                _eventoMoverPieza.Evento -= MoverPieza;
+            SetearPieza(pieza);
         }
 
         public void Inicializar(int x, int y)
@@ -36,43 +25,28 @@ namespace Boop.UI
             _posicionY = y;
         }
 
-        public void OnDrop(PointerEventData eventData)
+        public void Eliminar()
         {
-            GameObject objeto = eventData.pointerDrag;
-            if (!objeto.TryGetComponent(out _piezaUI))
-                return;
-
-            SetearPieza();
-            _eventoTerminarJugada.Evento += InicializarPieza;
-        }
-
-        private void InicializarPieza()
-        {
-            _eventoTerminarJugada.Evento -= InicializarPieza;
-            _piezaUI?.Inicializar(_posicionX, _posicionY);
-            _eventoSiguente?.Invoke();
+            _pieza.Eliminar();
+            _pieza = null;
         }
 
         public override void Sacar()
         {
-            _eventoTerminarJugada.Evento -= InicializarPieza;
-            _piezaUI = null;
+            _pieza = null;
         }
 
-        private void MoverPieza(PiezaUI piezaUI, int x, int y)
+        public void Transladar(SlotTableroUI slotFinal)
         {
-            if (_posicionX != x || _posicionY != y)
-                return;
-
-            _piezaUI = piezaUI;
-            SetearPieza();
-            _piezaUI?.Inicializar(_posicionX, _posicionY);
+            slotFinal.SetearPieza(_pieza);
+            _pieza = null;
         }
 
-        private void SetearPieza()
+        private void SetearPieza(PiezaUI pieza)
         {
-            _piezaUI.SetSlot(this);
-            _piezaUI.ActualizarPadre();
+            _pieza = pieza;
+            _pieza.SetearPadre(this);
+            _pieza.SetearCoordenada(_posicionX, _posicionY);
         }
     }
 }

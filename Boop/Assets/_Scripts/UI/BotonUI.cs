@@ -8,7 +8,7 @@ namespace Boop.UI
     [RequireComponent(typeof(Button))]
     public class BotonUI : MonoBehaviour, IPointerClickHandler
     {
-        [SerializeField] private EventoBool _eventoHabilitar;
+        [SerializeField] private EventoVoid _eventoHabilitar, _eventoDeshabilitar;
 
         [Space]
 
@@ -29,12 +29,19 @@ namespace Boop.UI
         {
             if (_eventoHabilitar != null)
                 _eventoHabilitar.Evento += Habilitar;
+
+            if (_eventoDeshabilitar != null)
+                _eventoDeshabilitar.Evento += Deshabilitar;
         }
 
         private void OnDisable()
         {
             if (_eventoHabilitar != null)
                 _eventoHabilitar.Evento -= Habilitar;
+
+
+            if (_eventoDeshabilitar != null)
+                _eventoDeshabilitar.Evento -= Deshabilitar;
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -42,9 +49,14 @@ namespace Boop.UI
             _eventoInicializar?.Invoke();
         }
 
-        private void Habilitar(bool estado)
+        private void Habilitar()
         {
-            _getBoton.interactable = estado;
+            _getBoton.interactable = true;
+        }
+
+        private void Deshabilitar()
+        {
+            _getBoton.interactable = false;
         }
     }
 }

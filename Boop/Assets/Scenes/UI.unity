@@ -214,12 +214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc38281a3a75f640a28fb7ca7064de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoAgregarPieza: {fileID: 11400000, guid: d84740398fe2f2f4598720b1ac6a0559, type: 2}
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoAgregarPiezaDeInventario: {fileID: 11400000, guid: 3a9be094b9835a647a6c907f36bc1f73, type: 2}
+  _eventoTerminarJugada: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
   _piezaPrefab: {fileID: 5302152638394435647, guid: 024bb58d34aaa7940ae0f77a641745d4, type: 3}
   _posicion: {fileID: 1727960026}
-  _eventoSeAgregaPieza: {fileID: 11400000, guid: e27c914bb142c614e93a735a594e1de4, type: 2}
-  _eventoSeSacaPieza: {fileID: 11400000, guid: dbf5d2335fb56e54a8c16f5b2e81682e, type: 2}
+  _eventoSacarPiezaDeInventario: {fileID: 11400000, guid: c505112ec624eaf4aacc3193f25ec2fa, type: 2}
 --- !u!1 &12350945
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,8 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &12350949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,8 +409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &63168755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,8 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8ce3346e869ef4aa5059f2a562ccc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoAgregarPieza: {fileID: 11400000, guid: e27c914bb142c614e93a735a594e1de4, type: 2}
-  _eventoSacarPieza: {fileID: 11400000, guid: dbf5d2335fb56e54a8c16f5b2e81682e, type: 2}
+  _eventoAgregarPieza: {fileID: 11400000, guid: 3a9be094b9835a647a6c907f36bc1f73, type: 2}
+  _eventoSacarPieza: {fileID: 11400000, guid: c505112ec624eaf4aacc3193f25ec2fa, type: 2}
 --- !u!1 &103723306
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,8 +673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &103723310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,6 +859,7 @@ GameObject:
   - component: {fileID: 267248843}
   - component: {fileID: 267248845}
   - component: {fileID: 267248846}
+  - component: {fileID: 267248847}
   m_Layer: 5
   m_Name: Tablero
   m_TagString: Untagged
@@ -1005,6 +999,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _configuracion: {fileID: 11400000, guid: 8d7ac6d020aed144e802ea10e5edf447, type: 2}
   _slotPrefab: {fileID: 1475440223856683769, guid: 8f03c2f5c9e09164b923927bbb903d9c, type: 3}
+  _tableroUI: {fileID: 267248847}
+--- !u!114 &267248847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267248841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da965ee0c9e9dd4438bc34ec3dcc6c5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventoSacarPieza: {fileID: 11400000, guid: ed3bcaee3064ab34eb7bad0d79a15f7e, type: 2}
+  _eventoTransladar: {fileID: 11400000, guid: e3a75f258518bb541ab46592852e6e9e, type: 2}
 --- !u!1 &276947273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,8 +1090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &276947277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1211,6 +1218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _eventoHabilitar: {fileID: 11400000, guid: 7fc716037d092084d8f9bc554bb0cb48, type: 2}
+  _eventoDeshabilitar: {fileID: 11400000, guid: 7fc716037d092084d8f9bc554bb0cb48, type: 2}
   _objetos:
   - {fileID: 932536766}
 --- !u!1 &283265782
@@ -1289,8 +1297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &283265786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,8 +1411,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &330510581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,8 +1602,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &374724312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1673,8 +1675,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -158, y: 760.9996}
-  m_SizeDelta: {x: 627.8605, y: 245.5018}
+  m_AnchoredPosition: {x: -275.4303, y: 760.9996}
+  m_SizeDelta: {x: 392.9999, y: 245.5018}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &393459700
 MonoBehaviour:
@@ -1790,8 +1792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &422036170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,8 +1906,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &450679975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2158,8 +2156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &472415187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2274,8 +2270,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &488035244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2493,8 +2487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &511812529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2609,8 +2601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &522297156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2702,12 +2692,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc38281a3a75f640a28fb7ca7064de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoAgregarPieza: {fileID: 11400000, guid: f6155b9556c97d041bdc362a7dc10e4f, type: 2}
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoAgregarPiezaDeInventario: {fileID: 11400000, guid: 90ac5f9435480f14e84ede5d9f8419ca, type: 2}
+  _eventoTerminarJugada: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
   _piezaPrefab: {fileID: 5302152638394435647, guid: d31454a617bd30a47b8815bb4dbf4ac0, type: 3}
   _posicion: {fileID: 1508594138}
-  _eventoSeAgregaPieza: {fileID: 11400000, guid: 1ea6e46e0124a68408cfe5725a42531b, type: 2}
-  _eventoSeSacaPieza: {fileID: 11400000, guid: 7c4e30dc0199f9a438b97d2246246182, type: 2}
+  _eventoSacarPiezaDeInventario: {fileID: 11400000, guid: ef200f7a57f93624196a34265902447c, type: 2}
 --- !u!114 &541875294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2925,8 +2914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &590054410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3136,7 +3123,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644980338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3164,7 +3151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ad419aedf91d46bbf92da409e7b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoHabilitar: {fileID: 11400000, guid: fe14a5168aabf4f45a68ce153e2ed420, type: 2}
+  _eventoHabilitar: {fileID: 11400000, guid: e63d844984e314f44a71656439b18b4d, type: 2}
+  _eventoDeshabilitar: {fileID: 11400000, guid: aa3f777f32e02be41807b3571bd8f30b, type: 2}
   _objetos:
   - {fileID: 393459698}
 --- !u!1 &674875987
@@ -3243,8 +3231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &674875991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3359,8 +3345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &712820320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3475,8 +3459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &764042929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3796,8 +3778,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &932656275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3912,8 +3892,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1009606910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4028,8 +4006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1069687987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4103,8 +4079,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 158.88458, y: -762.8958}
-  m_SizeDelta: {x: 627.8605, y: 245.5018}
+  m_AnchoredPosition: {x: 277.61963, y: -762.8958}
+  m_SizeDelta: {x: 390.3904, y: 245.5018}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080667291
 MonoBehaviour:
@@ -4220,8 +4196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1157683515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4336,8 +4310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1181186298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4427,8 +4399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8ce3346e869ef4aa5059f2a562ccc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoAgregarPieza: {fileID: 11400000, guid: bab2d906a03084047995f03b3b9d8172, type: 2}
-  _eventoSacarPieza: {fileID: 11400000, guid: b2f3c93c4912efb4ca7c445e17ef3f6f, type: 2}
+  _eventoAgregarPieza: {fileID: 11400000, guid: f42e296669829994c9b0419ef48333ec, type: 2}
+  _eventoSacarPieza: {fileID: 11400000, guid: 6ef98f0ed2b271340aebbf9c2fd3083e, type: 2}
 --- !u!114 &1188109759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4602,8 +4574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1232874043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4718,8 +4688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1254086500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4810,7 +4778,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 863ad419aedf91d46bbf92da409e7b01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoHabilitar: {fileID: 11400000, guid: d94e02fb7fa24fb4e8c426d199b9f6fe, type: 2}
+  _eventoHabilitar: {fileID: 11400000, guid: e13bcdcaf2df1c244853d031d74abe0c, type: 2}
+  _eventoDeshabilitar: {fileID: 11400000, guid: 8918e62fe5c7baf4bbbcb4dd05efc00f, type: 2}
   _objetos:
   - {fileID: 1080667289}
 --- !u!1 &1414898566
@@ -4866,12 +4835,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc38281a3a75f640a28fb7ca7064de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoAgregarPieza: {fileID: 11400000, guid: ea0c5b09ae07adf47a53582d43287f1a, type: 2}
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoAgregarPiezaDeInventario: {fileID: 11400000, guid: f42e296669829994c9b0419ef48333ec, type: 2}
+  _eventoTerminarJugada: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
   _piezaPrefab: {fileID: 5302152638394435647, guid: e9958559d66a00644add30a71c1b14ee, type: 3}
   _posicion: {fileID: 598389779}
-  _eventoSeAgregaPieza: {fileID: 11400000, guid: bab2d906a03084047995f03b3b9d8172, type: 2}
-  _eventoSeSacaPieza: {fileID: 11400000, guid: b2f3c93c4912efb4ca7c445e17ef3f6f, type: 2}
+  _eventoSacarPiezaDeInventario: {fileID: 11400000, guid: 6ef98f0ed2b271340aebbf9c2fd3083e, type: 2}
 --- !u!114 &1414898569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5045,8 +5013,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b4a6df8276d464fb4f7d861a117e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoHabilitar: {fileID: 11400000, guid: a560c86dd669ccb49a431c3b40396dd3, type: 2}
-  _eventoInicializar: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoHabilitar: {fileID: 11400000, guid: 8918e62fe5c7baf4bbbcb4dd05efc00f, type: 2}
+  _eventoDeshabilitar: {fileID: 11400000, guid: e13bcdcaf2df1c244853d031d74abe0c, type: 2}
+  _eventoInicializar: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
 --- !u!1 &1508594137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5238,8 +5207,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b4a6df8276d464fb4f7d861a117e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoHabilitar: {fileID: 11400000, guid: a560c86dd669ccb49a431c3b40396dd3, type: 2}
-  _eventoInicializar: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoHabilitar: {fileID: 11400000, guid: aa3f777f32e02be41807b3571bd8f30b, type: 2}
+  _eventoDeshabilitar: {fileID: 11400000, guid: e63d844984e314f44a71656439b18b4d, type: 2}
+  _eventoInicializar: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
 --- !u!114 &1564695028
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5398,8 +5368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1628665193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5514,8 +5482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1667028988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5630,8 +5596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1713866877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5816,8 +5780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1739825252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6217,12 +6179,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcc38281a3a75f640a28fb7ca7064de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoAgregarPieza: {fileID: 11400000, guid: 268a8ba7033f6c245adc309200d4c760, type: 2}
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
+  _eventoAgregarPiezaDeInventario: {fileID: 11400000, guid: c481367778e4b6644b1ba0ba686be861, type: 2}
+  _eventoTerminarJugada: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
   _piezaPrefab: {fileID: 5302152638394435647, guid: badae4789c7a920499a57c85226c3444, type: 3}
   _posicion: {fileID: 2019475920}
-  _eventoSeAgregaPieza: {fileID: 11400000, guid: 10f51fd893b4a304b97aad1b502b543b, type: 2}
-  _eventoSeSacaPieza: {fileID: 11400000, guid: f3d26b2fd2cb85e41beb36a68eab06d3, type: 2}
+  _eventoSacarPiezaDeInventario: {fileID: 11400000, guid: c67c37cfc889c3f488bc1c3f23e43b32, type: 2}
 --- !u!1 &1839639488
 GameObject:
   m_ObjectHideFlags: 0
@@ -6351,8 +6312,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8ce3346e869ef4aa5059f2a562ccc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoAgregarPieza: {fileID: 11400000, guid: 1ea6e46e0124a68408cfe5725a42531b, type: 2}
-  _eventoSacarPieza: {fileID: 11400000, guid: 7c4e30dc0199f9a438b97d2246246182, type: 2}
+  _eventoAgregarPieza: {fileID: 11400000, guid: 90ac5f9435480f14e84ede5d9f8419ca, type: 2}
+  _eventoSacarPieza: {fileID: 11400000, guid: ef200f7a57f93624196a34265902447c, type: 2}
 --- !u!114 &1845588971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6526,8 +6487,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1853942575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6642,8 +6601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1856036060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6758,8 +6715,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1865015709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6874,8 +6829,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &1880602208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7139,8 +7092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e8ce3346e869ef4aa5059f2a562ccc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoAgregarPieza: {fileID: 11400000, guid: 10f51fd893b4a304b97aad1b502b543b, type: 2}
-  _eventoSacarPieza: {fileID: 11400000, guid: f3d26b2fd2cb85e41beb36a68eab06d3, type: 2}
+  _eventoAgregarPieza: {fileID: 11400000, guid: c481367778e4b6644b1ba0ba686be861, type: 2}
+  _eventoSacarPieza: {fileID: 11400000, guid: c67c37cfc889c3f488bc1c3f23e43b32, type: 2}
 --- !u!1 &2019475919
 GameObject:
   m_ObjectHideFlags: 0
@@ -7287,8 +7240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &2032970088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7403,8 +7354,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &2055198926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7519,8 +7468,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &2057564488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7635,8 +7582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d57139bced362754b9cfdf78577d03f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoTerminarJugada: {fileID: 11400000, guid: 4f8ad1b5f4827c146b8f3778c4fc113b, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
 --- !u!114 &2104002478
 MonoBehaviour:
   m_ObjectHideFlags: 0

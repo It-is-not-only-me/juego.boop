@@ -11,6 +11,7 @@ namespace Boop.UI
     {
         [SerializeField] private ConfiguracionGrilla _configuracion;
         [SerializeField] private GameObject _slotPrefab;
+        [SerializeField] private TableroUI _tableroUI;
 
         private RectTransform _rectTransform;
         private RectTransform _getRectTransfrom
@@ -44,6 +45,8 @@ namespace Boop.UI
         {
             EliminarInformacionExistente();
 
+            SlotTableroUI[,] tablero = new SlotTableroUI[_configuracion.Columnas, _configuracion.Filas];
+
             _getGridLayout.padding = _configuracion.Padding;
             _getGridLayout.spacing = _configuracion.Espaciado;
             _getGridLayout.childAlignment = TextAnchor.MiddleCenter;
@@ -61,8 +64,11 @@ namespace Boop.UI
 
                     SlotTableroUI slot = slotGameObject.GetComponent<SlotTableroUI>();
                     slot.Inicializar(j, i);
+                    tablero[j, i] = slot;
                 }
 
+            if (_tableroUI != null)
+                _tableroUI.Tablero = tablero;
         }
 
         private Vector2 TamanioSlots(int columnas, int filas, Vector2 dimensiones, RectOffset padding, Vector2 espaciado)

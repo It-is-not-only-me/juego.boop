@@ -12,8 +12,8 @@ namespace Boop.Bahaviour
 
         [Space]
 
-        [SerializeField] private EventoPieza _eventoAgregarGatito;
-        [SerializeField] private EventoPieza _eventoAgregarGato;
+        [SerializeField] private EventoVoid _eventoAgregarGatito;
+        [SerializeField] private EventoVoid _eventoAgregarGato;
 
         [Space]
 
@@ -22,16 +22,10 @@ namespace Boop.Bahaviour
 
         private Inventario _inventario;
 
-        private void Start()
+        private void Awake()
         {
             _inventario = new Inventario(new ListaLimitada<PiezaGatoChico>(_configuracion.CantidadMaximaGatitos),
                                          new ListaLimitada<PiezaGatoGrande>(_configuracion.CantidadMaximaGatos));
-
-            for (int i = 0; i < _configuracion.CantidadDeGatitos; i++)
-                AgregarGatoChico(new PiezaGatoChico(this, _tablero));
-
-            for (int i = 0; i < _configuracion.CantidadDeGatos; i++)
-                AgregarGatoGrande(new PiezaGatoGrande(this, _tablero));
         }
 
         private void OnEnable()
@@ -56,7 +50,7 @@ namespace Boop.Bahaviour
         {
             bool sePudoAgregar = _inventario.AgregarGatoChico(pieza);
             if (sePudoAgregar)
-                _eventoAgregarGatito?.Invoke(pieza);
+                _eventoAgregarGatito?.Invoke();
             return sePudoAgregar;
         }
 
@@ -64,7 +58,7 @@ namespace Boop.Bahaviour
         {
             bool sePudoAgregar = _inventario.AgregarGatoGrande(pieza);
             if (sePudoAgregar)
-                _eventoAgregarGato?.Invoke(pieza);
+                _eventoAgregarGato?.Invoke();
             return sePudoAgregar;
         }
 

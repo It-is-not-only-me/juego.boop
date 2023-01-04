@@ -8,6 +8,6 @@ namespace Boop.Evento
     {
         public Action<bool> Evento;
 
-        public void Invoke(bool valor) => Evento?.Invoke(!valor);
+        public void Invoke(bool valor) => Evento?.Invoke(valor);
     }
 }

@@ -7,25 +7,24 @@ namespace Boop.UI
 {
     public class SlotInventarioUI : SlotUI
     {
-        [SerializeField] private EventoPieza _eventoAgregarPieza;
+        [SerializeField] private EventoVoid _eventoAgregarPiezaDeInventario;
         [SerializeField] private EventoVoid _eventoTerminarJugada;
+
         [SerializeField] private GameObject _piezaPrefab;
         [SerializeField] private Transform _posicion;
 
         [Space]
 
-        [SerializeField] private EventoVoid _eventoSeAgregaPieza;
-        [SerializeField] private EventoVoid _eventoSeSacaPieza;
+        [SerializeField] private EventoVoid _eventoSacarPiezaDeInventario;
 
-        private List<IPieza> _piezas = new List<IPieza>();
+        private int _cantidad = 0;
         private bool _seNecesitaRegenerar = false;
 
-        private int _cantidad => _piezas.Count;
 
         private void OnEnable()
         {
-            if (_eventoAgregarPieza != null)
-                _eventoAgregarPieza.Evento += Agregar;
+            if (_eventoAgregarPiezaDeInventario != null)
+                _eventoAgregarPiezaDeInventario.Evento += Agregar;
 
             if (_eventoTerminarJugada != null)
                 _eventoTerminarJugada.Evento += RegenerarPieza;
@@ -33,43 +32,45 @@ namespace Boop.UI
 
         private void OnDisable()
         {
-            if (_eventoAgregarPieza != null)
-                _eventoAgregarPieza.Evento -= Agregar;
+            if (_eventoAgregarPiezaDeInventario != null)
+                _eventoAgregarPiezaDeInventario.Evento -= Agregar;
 
             if (_eventoTerminarJugada != null)
                 _eventoTerminarJugada.Evento -= RegenerarPieza;
         }
 
-        private void Agregar(IPieza pieza)
+        private void Agregar()
         {
-            _piezas.Add(pieza);
+            _cantidad++;
             if (_cantidad == 1)
-                CrearPieza(pieza);
+                CrearPieza();
 
             _seNecesitaRegenerar = false;
-            _eventoSeAgregaPieza?.Invoke();
         }
 
         public override void Sacar()
         {
-            _piezas.RemoveAt(_cantidad - 1);
+            if (_cantidad <= 0)
+                return;
+            
+            _cantidad--;
             _seNecesitaRegenerar = true;
-            _eventoSeSacaPieza?.Invoke();
+            _eventoSacarPiezaDeInventario?.Invoke();
         }
 
         private void RegenerarPieza()
         {
             if (_cantidad > 0 && _seNecesitaRegenerar)
-                CrearPieza(_piezas[_cantidad - 1]);
+                CrearPieza();
+
             _seNecesitaRegenerar = false;
         }
 
-        private void CrearPieza(IPieza pieza)
+        private void CrearPieza()
         {
-            GameObject piezaUIGameObject = Instantiate(_piezaPrefab, _posicion);
-            PiezaUI piezaUI = piezaUIGameObject.GetComponent<PiezaUI>();
-            piezaUI.EstablecerPieza(pieza);
-            piezaUI.SetSlot(this);
+            GameObject piezaGO = Instantiate(_piezaPrefab, _posicion);            
+            PiezaUI piezaUI = piezaGO.GetComponent<PiezaUI>();
+            piezaUI.Inicializar(this);
         }
     }
 }

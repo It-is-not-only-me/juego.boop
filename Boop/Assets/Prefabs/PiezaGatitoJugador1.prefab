@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f56a4a62d95368342bc4fef1ca0d23ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoSacarPieza: {fileID: 11400000, guid: be76fac2a8a94e54ba558567e1d45ecb, type: 2}
-  _eventoTransladarPieza: {fileID: 11400000, guid: 4eb8e2fc9ad3aa648a43bce357b1e3b5, type: 2}
-  _eventoMoverPieza: {fileID: 11400000, guid: e99ff5075b3fa14428585cde5738174e, type: 2}
-  _eventoAgregarPieza: {fileID: 11400000, guid: e39830f2361dc78428eec392a7d2ef12, type: 2}
+  _eventoTerminarTurno: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
+  _eventoAgregarPieza: {fileID: 11400000, guid: 2923b68b4645e9940a3778b35d5f539b, type: 2}
+  _eventoHabilitarBoton: {fileID: 11400000, guid: 8918e62fe5c7baf4bbbcb4dd05efc00f, type: 2}

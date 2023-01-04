@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Opciones
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2701,7 +2701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 600826978}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Opciones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4999,7 +4999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reiniciar
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8994,7 +8994,7 @@ GameObject:
   - component: {fileID: 2140272601}
   - component: {fileID: 2140272604}
   m_Layer: 5
-  m_Name: Reiniciar
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9116,4 +9116,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _escenaManager: {fileID: 11400000, guid: 7d66a293b99c01f41bf307f8a6ceecaf, type: 2}
-  _escena: {fileID: 11400000, guid: 61b9e4a97eef19f40a6502d8949aa24f, type: 2}
+  _escena: {fileID: 11400000, guid: 511b68b3b84938c45a8a27e6f619b740, type: 2}

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e3c5fbcaa585b540abf8fc675581e3c, type: 3}
   m_Name: Configuracion_Inventario
   m_EditorClassIdentifier: 
-  CantidadMaximaGatitos: 8
-  CantidadMaximaGatos: 8
+  _nombre: Inventario
+  _cantidadMaximaGatitos: 8
+  _cantidadMaximaGatos: 8

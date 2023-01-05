@@ -41,10 +41,7 @@ public class ReglasTest
 
 
         IRegla regla = new ReglaUpgradeGatitos(tablero, jugador1, jugador2);
-        
-        for (int i = 0; i < _ancho; i++)
-            for (int j = 0; j < _ancho; j++)
-                regla.Aplicar(tablero[i, j], i, j);
+        regla.Aplicar();
 
         Assert.IsFalse(seAplicaRegla);
     }
@@ -72,10 +69,7 @@ public class ReglasTest
 
 
         IRegla regla = new ReglaUpgradeGatitos(tablero, jugador1, jugador2);
-
-        for (int i = 0; i < _ancho; i++)
-            for (int j = 0; j < _ancho; j++)
-                regla.Aplicar(tablero[i, j], i, j);
+        regla.Aplicar();
 
         Assert.IsFalse(seAplicaRegla);
     }
@@ -107,10 +101,7 @@ public class ReglasTest
 
 
         IRegla regla = new ReglaUpgradeGatitos(tablero, jugador1, jugador2);
-
-        for (int i = 0; i < _ancho; i++)
-            for (int j = 0; j < _ancho; j++)
-                regla.Aplicar(tablero[i, j], i, j);
+        regla.Aplicar();
 
         Assert.IsTrue(seAplicaRegla);
     }
@@ -142,10 +133,7 @@ public class ReglasTest
 
 
         IRegla regla = new ReglaUpgradeGatitos(tablero, jugador1, jugador2);
-
-        for (int i = 0; i < _ancho; i++)
-            for (int j = 0; j < _ancho; j++)
-                regla.Aplicar(tablero[i, j], i, j);
+        regla.Aplicar();
 
         Assert.IsFalse(seAplicaRegla);
     }
@@ -177,10 +165,7 @@ public class ReglasTest
 
 
         IRegla regla = new ReglaUpgradeGatitos(tablero, jugador1, jugador2);
-
-        for (int i = 0; i < _ancho; i++)
-            for (int j = 0; j < _ancho; j++)
-                regla.Aplicar(tablero[i, j], i, j);
+        regla.Aplicar();
 
         Assert.IsFalse(seAplicaRegla);
     }

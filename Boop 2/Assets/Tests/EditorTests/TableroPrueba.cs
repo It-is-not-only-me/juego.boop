@@ -38,8 +38,6 @@ public class TableroPrueba : ITablero
         return pudoMoverPieza;
     }
 
-    public void AplicarRegla(IRegla regla) => _tablero.AplicarRegla(regla);
-
     public bool HayPiezaEn(int x, int y) => _tablero.HayPiezaEn(x, y);
 
     public bool EnRango(int x, int y) => _tablero.EnRango(x, y);

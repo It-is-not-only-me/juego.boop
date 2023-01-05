@@ -29,7 +29,16 @@ namespace Boop.Modelo
             };
         }
 
-        public void Aplicar(IPieza pieza, int x, int y)
+        public void Aplicar()
+        {
+            for (int i = 0; i < _ancho; i++)
+                for (int j = 0; j < _alto; j++)
+                {
+                    TresEnLinea(_tablero[i, j], i, j);
+                }
+        }
+
+        private void TresEnLinea(IPieza pieza, int x, int y)
         {
             if (pieza == null || !pieza.EsUpgradeable())
                 return;

@@ -1,11 +1,12 @@
 ﻿using Boop.Configuracion;
 using Boop.Evento;
 using Boop.Modelo;
-using Boop.UI;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Boop.Bahaviour
 {
+
     public class GameBehaviour : MonoBehaviour
     {
         public enum EstadoJuego
@@ -14,9 +15,14 @@ namespace Boop.Bahaviour
             TurnoJugador2
         }
 
+        [SerializeField] private JuegoBehaviour _juego;
         [SerializeField] private TableroBehaviour _tablero;
         [SerializeField] private JugadorBehaviour _jugador1, _jugador2;
+
+        [Space]
+
         [SerializeField] private ConfiguracionInicio _configuracion;
+        [SerializeField] private ConfiguracionInventario _configuracionInventario;
 
         [Space]
 
@@ -26,7 +32,7 @@ namespace Boop.Bahaviour
         [SerializeField] private EventoVoid _eventoDeshabilitarJugador2;
         [SerializeField] private EventoVoid _eventTerminarJugada;
 
-        private IRegla _regla;
+        private List<IRegla> _reglas;
         private EstadoJuego _estadoActual;
 
         private void Start() => Empezar();
@@ -45,7 +51,13 @@ namespace Boop.Bahaviour
 
         private void Empezar()
         {
-            _regla = new ReglaUpgradeGatitos(_tablero, _jugador1, _jugador2);
+            _reglas = new List<IRegla>
+            {
+                new ReglaUpgradeGatitos(_tablero, _jugador1, _jugador2),
+                new ReglaGanar(_juego, _tablero, _jugador1, _configuracionInventario.CantidadMaximaGatos),
+                new ReglaGanar(_juego, _tablero, _jugador2, _configuracionInventario.CantidadMaximaGatos)
+            };
+            
 
             _estadoActual = _configuracion.PrimerJugador;
 
@@ -105,7 +117,7 @@ namespace Boop.Bahaviour
 
         private void AplicarReglas()
         {
-            _tablero.AplicarRegla(_regla);
+            _reglas.ForEach(regla => regla.Aplicar());
         }
     }
 }

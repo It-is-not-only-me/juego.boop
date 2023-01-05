@@ -76,8 +76,6 @@ namespace Boop.Bahaviour
             return sePudoMover;
         }
 
-        public void AplicarRegla(IRegla regla) => _tablero.AplicarRegla(regla);
-
         public bool EnRango(int x, int y) => _tablero.EnRango(x, y);
 
         public bool HayPiezaEn(int x, int y) => _tablero.HayPiezaEn(x, y);

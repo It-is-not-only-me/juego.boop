@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e3c5fbcaa585b540abf8fc675581e3c, type: 3}
-  m_Name: Configuracion_Inventario
+  m_Script: {fileID: 11500000, guid: 26a7646c4b849574da1f8cdded0bf5b5, type: 3}
+  m_Name: Evento_Cantidad gatitos
   m_EditorClassIdentifier: 
-  CantidadMaximaGatitos: 8
-  CantidadMaximaGatos: 8

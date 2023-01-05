@@ -10,10 +10,18 @@ namespace Boop.UI
         private int _posicionX, _posicionY;
         private PiezaUI _pieza;
 
+        private void Start()
+        {
+            _pieza = null;
+        }
+
         public void OnDrop(PointerEventData eventData)
         {
             GameObject objeto = eventData.pointerDrag;
             if (!objeto.TryGetComponent(out PiezaUI pieza))
+                return;
+
+            if (_pieza != null && pieza == _pieza)
                 return;
 
             SetearPieza(pieza);
@@ -38,6 +46,9 @@ namespace Boop.UI
 
         public void Transladar(SlotTableroUI slotFinal)
         {
+            if (slotFinal == this)
+                return;
+            
             slotFinal.SetearPieza(_pieza);
             _pieza = null;
         }
@@ -47,12 +58,6 @@ namespace Boop.UI
             _pieza = pieza;
             _pieza.SetearPadre(this);
             _pieza.SetearCoordenada(_posicionX, _posicionY);
-        }
-
-        public override void Reiniciar()
-        {
-            _pieza?.Eliminar();
-            _pieza = null;
         }
     }
 }

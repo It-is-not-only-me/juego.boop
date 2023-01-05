@@ -2,9 +2,8 @@
 
 namespace Boop.UI
 {
-    public abstract class SlotUI : MonoBehaviour, IReiniciable
+    public abstract class SlotUI : MonoBehaviour
     {
-        public abstract void Reiniciar();
         public abstract void Sacar();
     }
 }

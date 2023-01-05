@@ -5,13 +5,9 @@ using TMPro;
 namespace Boop.UI
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public class CantidadPiezasUI : MonoBehaviour, IReiniciable
+    public class CantidadPiezasUI : MonoBehaviour
     {
         [SerializeField] private EventoVoid _eventoAgregarPieza, _eventoSacarPieza;
-
-        [Space]
-
-        [SerializeField] private EventoVoid _eventoReiniciar;
 
         private int _cantidad = 0;
 
@@ -26,6 +22,11 @@ namespace Boop.UI
             }
         }
 
+        private void Awake()
+        {
+            _cantidad = 0;
+        }
+
         private void OnEnable()
         {
             if (_eventoAgregarPieza != null)
@@ -33,9 +34,6 @@ namespace Boop.UI
 
             if (_eventoSacarPieza != null)
                 _eventoSacarPieza.Evento += SacarPieza;
-
-            if (_eventoReiniciar != null)
-                _eventoReiniciar.Evento += Reiniciar;
         }
 
         private void OnDisable()
@@ -45,9 +43,6 @@ namespace Boop.UI
 
             if (_eventoSacarPieza != null)
                 _eventoSacarPieza.Evento -= SacarPieza;
-
-            if (_eventoReiniciar != null)
-                _eventoReiniciar.Evento -= Reiniciar;
         }
 
         private void AgregarPieza()
@@ -59,12 +54,6 @@ namespace Boop.UI
         private void SacarPieza()
         {
             _cantidad--;
-            ActualizarTexto();
-        }
-
-        public void Reiniciar()
-        {
-            _cantidad = 0;
             ActualizarTexto();
         }
 

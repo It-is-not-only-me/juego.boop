@@ -2,13 +2,15 @@
 using UnityEngine.EventSystems;
 using Boop.Evento;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 namespace Boop.UI
 {
     [RequireComponent(typeof(Button))]
     public class BotonUI : MonoBehaviour, IPointerClickHandler
     {
-        [SerializeField] private EventoVoid _eventoHabilitar, _eventoDeshabilitar;
+        [SerializeField] private List<EventoVoid> _eventoHabilitar = new List<EventoVoid>();
+        [SerializeField] private List<EventoVoid> _eventoDeshabilitar = new List<EventoVoid>();
 
         [Space]
 
@@ -27,21 +29,14 @@ namespace Boop.UI
 
         private void OnEnable()
         {
-            if (_eventoHabilitar != null)
-                _eventoHabilitar.Evento += Habilitar;
-
-            if (_eventoDeshabilitar != null)
-                _eventoDeshabilitar.Evento += Deshabilitar;
+            _eventoHabilitar.ForEach(eventoHabilitar => eventoHabilitar.Evento += Habilitar);
+            _eventoDeshabilitar.ForEach(eventoDeshabilitar => eventoDeshabilitar.Evento += Deshabilitar);
         }
 
         private void OnDisable()
         {
-            if (_eventoHabilitar != null)
-                _eventoHabilitar.Evento -= Habilitar;
-
-
-            if (_eventoDeshabilitar != null)
-                _eventoDeshabilitar.Evento -= Deshabilitar;
+            _eventoHabilitar.ForEach(eventoHabilitar => eventoHabilitar.Evento -= Habilitar);
+            _eventoDeshabilitar.ForEach(eventoDeshabilitar => eventoDeshabilitar.Evento -= Deshabilitar);
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -51,11 +46,13 @@ namespace Boop.UI
 
         private void Habilitar()
         {
+            _getBoton.enabled = true;
             _getBoton.interactable = true;
         }
 
         private void Deshabilitar()
         {
+            _getBoton.enabled = false;
             _getBoton.interactable = false;
         }
     }

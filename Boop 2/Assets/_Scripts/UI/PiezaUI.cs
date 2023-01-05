@@ -14,7 +14,6 @@ namespace Boop.UI
         [Space]
 
         [SerializeField] private EventoCoordenada _eventoAgregarPieza;
-        [SerializeField] private EventoVoid _eventoHabilitarBoton;
 
         private Canvas _canvas;
         private Canvas _getCanvas
@@ -86,7 +85,6 @@ namespace Boop.UI
             {
                 _moverPieza = true;
                 _eventoTerminarTurno.Evento += AsignarPosicion;
-                _eventoHabilitarBoton?.Invoke();
             }
         }
 

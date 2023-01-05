@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Boop.UI
 {
-    public class TableroUI : MonoBehaviour, IReiniciable
+    public class TableroUI : MonoBehaviour
     {
         [SerializeField] private EventoCoordenada _eventoSacarPieza;
         [SerializeField] private EventoTransladar _eventoTransladar;
@@ -15,10 +15,6 @@ namespace Boop.UI
 
         [SerializeField] private ConfiguracionGrilla _configuracion;
         [SerializeField] private List<SlotTableroUI> _slots = new List<SlotTableroUI>();
-
-        [Space]
-
-        [SerializeField] private EventoVoid _eventoReiniciar;
 
         private SlotTableroUI[,] _tablero;
 
@@ -41,9 +37,6 @@ namespace Boop.UI
 
             if (_eventoTransladar != null)
                 _eventoTransladar.Evento += TransladarPieza;
-
-            if (_eventoReiniciar != null)
-                _eventoReiniciar.Evento += Reiniciar;
         }
 
         private void OnDisable()
@@ -53,9 +46,6 @@ namespace Boop.UI
 
             if (_eventoTransladar != null)
                 _eventoTransladar.Evento -= TransladarPieza;
-
-            if (_eventoReiniciar != null)
-                _eventoReiniciar.Evento -= Reiniciar;
         }
 
         private void SacarPieza(int x, int y)
@@ -66,11 +56,6 @@ namespace Boop.UI
         private void TransladarPieza(int xOriginal, int yOriginal, int xFinal, int yFinal)
         {
             _tablero[xOriginal, yOriginal].Transladar(_tablero[xFinal, yFinal]);
-        }
-
-        public void Reiniciar()
-        {
-            _slots.ForEach(slot => slot.Reiniciar());
         }
     }
 }

@@ -1191,7 +1191,6 @@ MonoBehaviour:
   _piezaPrefab: {fileID: 5302152638394435647, guid: d31454a617bd30a47b8815bb4dbf4ac0, type: 3}
   _posicion: {fileID: 1677954202}
   _eventoSacarPiezaDeInventario: {fileID: 11400000, guid: ef200f7a57f93624196a34265902447c, type: 2}
-  _eventoReiniciar: {fileID: 0}
 --- !u!114 &298406885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,7 +1601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventoAgregarPieza: {fileID: 11400000, guid: 3a9be094b9835a647a6c907f36bc1f73, type: 2}
   _eventoSacarPieza: {fileID: 11400000, guid: c505112ec624eaf4aacc3193f25ec2fa, type: 2}
-  _eventoReiniciar: {fileID: 0}
 --- !u!114 &404321803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2312,8 +2310,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b4a6df8276d464fb4f7d861a117e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoHabilitar: {fileID: 11400000, guid: 8918e62fe5c7baf4bbbcb4dd05efc00f, type: 2}
-  _eventoDeshabilitar: {fileID: 11400000, guid: e13bcdcaf2df1c244853d031d74abe0c, type: 2}
+  _eventoHabilitar:
+  - {fileID: 11400000, guid: c505112ec624eaf4aacc3193f25ec2fa, type: 2}
+  - {fileID: 11400000, guid: c67c37cfc889c3f488bc1c3f23e43b32, type: 2}
+  _eventoDeshabilitar:
+  - {fileID: 11400000, guid: e13bcdcaf2df1c244853d031d74abe0c, type: 2}
+  - {fileID: 11400000, guid: 8918e62fe5c7baf4bbbcb4dd05efc00f, type: 2}
   _eventoInicializar: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
 --- !u!114 &466250126
 MonoBehaviour:
@@ -2654,7 +2656,6 @@ MonoBehaviour:
   _piezaPrefab: {fileID: 5302152638394435647, guid: badae4789c7a920499a57c85226c3444, type: 3}
   _posicion: {fileID: 342319707}
   _eventoSacarPiezaDeInventario: {fileID: 11400000, guid: c67c37cfc889c3f488bc1c3f23e43b32, type: 2}
-  _eventoReiniciar: {fileID: 0}
 --- !u!114 &596280073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2904,7 +2905,6 @@ MonoBehaviour:
   _piezaPrefab: {fileID: 5302152638394435647, guid: 024bb58d34aaa7940ae0f77a641745d4, type: 3}
   _posicion: {fileID: 206586016}
   _eventoSacarPiezaDeInventario: {fileID: 11400000, guid: c505112ec624eaf4aacc3193f25ec2fa, type: 2}
-  _eventoReiniciar: {fileID: 0}
 --- !u!114 &633130299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3222,7 +3222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.21176471}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3811,7 +3811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.21176471}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4617,7 +4617,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventoAgregarPieza: {fileID: 11400000, guid: f42e296669829994c9b0419ef48333ec, type: 2}
   _eventoSacarPieza: {fileID: 11400000, guid: 6ef98f0ed2b271340aebbf9c2fd3083e, type: 2}
-  _eventoReiniciar: {fileID: 0}
 --- !u!114 &1011844334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5309,7 +5308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventoAgregarPieza: {fileID: 11400000, guid: c481367778e4b6644b1ba0ba686be861, type: 2}
   _eventoSacarPieza: {fileID: 11400000, guid: c67c37cfc889c3f488bc1c3f23e43b32, type: 2}
-  _eventoReiniciar: {fileID: 0}
 --- !u!114 &1120584426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5861,7 +5859,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _eventoAgregarPieza: {fileID: 11400000, guid: 90ac5f9435480f14e84ede5d9f8419ca, type: 2}
   _eventoSacarPieza: {fileID: 11400000, guid: ef200f7a57f93624196a34265902447c, type: 2}
-  _eventoReiniciar: {fileID: 0}
 --- !u!114 &1291003875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6124,7 +6121,6 @@ MonoBehaviour:
   - {fileID: 566424580}
   - {fileID: 903260190}
   - {fileID: 963250456}
-  _eventoReiniciar: {fileID: 0}
 --- !u!1 &1344138225
 GameObject:
   m_ObjectHideFlags: 0
@@ -6388,7 +6384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.21176471}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7206,7 +7202,6 @@ MonoBehaviour:
   _piezaPrefab: {fileID: 5302152638394435647, guid: e9958559d66a00644add30a71c1b14ee, type: 3}
   _posicion: {fileID: 1767268871}
   _eventoSacarPiezaDeInventario: {fileID: 11400000, guid: 6ef98f0ed2b271340aebbf9c2fd3083e, type: 2}
-  _eventoReiniciar: {fileID: 0}
 --- !u!114 &1555971110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7547,7 +7542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.21176471}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.6666667}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8025,8 +8020,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b4a6df8276d464fb4f7d861a117e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventoHabilitar: {fileID: 11400000, guid: aa3f777f32e02be41807b3571bd8f30b, type: 2}
-  _eventoDeshabilitar: {fileID: 11400000, guid: e63d844984e314f44a71656439b18b4d, type: 2}
+  _eventoHabilitar:
+  - {fileID: 11400000, guid: 6ef98f0ed2b271340aebbf9c2fd3083e, type: 2}
+  - {fileID: 11400000, guid: ef200f7a57f93624196a34265902447c, type: 2}
+  _eventoDeshabilitar:
+  - {fileID: 11400000, guid: aa3f777f32e02be41807b3571bd8f30b, type: 2}
+  - {fileID: 11400000, guid: e63d844984e314f44a71656439b18b4d, type: 2}
   _eventoInicializar: {fileID: 11400000, guid: 1ed8700ee3f3ad74eb4d82d6998a9b24, type: 2}
 --- !u!114 &1804902342
 MonoBehaviour:

@@ -18,13 +18,14 @@ namespace Boop.UI
 
         [SerializeField] private EventoVoid _eventoSacarPiezaDeInventario;
 
-        [Space]
-
-        [SerializeField] private EventoVoid _eventoReiniciar;
-
         private int _cantidad = 0;
         private bool _seNecesitaRegenerar = false;
 
+        private void Awake()
+        {
+            _cantidad = 0;
+            _seNecesitaRegenerar = false;
+        }
 
         private void OnEnable()
         {
@@ -33,9 +34,6 @@ namespace Boop.UI
 
             if (_eventoTerminarJugada != null)
                 _eventoTerminarJugada.Evento += RegenerarPieza;
-
-            if (_eventoReiniciar != null)
-                _eventoReiniciar.Evento += Reiniciar;
         }
 
         private void OnDisable()
@@ -45,9 +43,6 @@ namespace Boop.UI
 
             if (_eventoTerminarJugada != null)
                 _eventoTerminarJugada.Evento -= RegenerarPieza;
-
-            if (_eventoReiniciar != null)
-                _eventoReiniciar.Evento -= Reiniciar;
         }
 
         private void Agregar()
@@ -82,18 +77,6 @@ namespace Boop.UI
             GameObject piezaGO = Instantiate(_piezaPrefab, _posicion);            
             PiezaUI piezaUI = piezaGO.GetComponent<PiezaUI>();
             piezaUI.Inicializar(this);
-        }
-
-        public override void Reiniciar()
-        {
-            _cantidad = 0;
-            _seNecesitaRegenerar = false;
-
-            while (_posicion.childCount > 0)
-                if (Application.isEditor)
-                    DestroyImmediate(_posicion.GetChild(0).gameObject);
-                else
-                    Destroy(_posicion.GetChild(0).gameObject);
         }
     }
 }

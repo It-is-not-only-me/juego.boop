@@ -27,8 +27,10 @@ namespace Boop.UI
                 _eventoDeshabilitar.Evento -= Deshabilitar;
         }
 
+        [ContextMenu("Habilitar")]
         private void Habilitar() => ActualizarHabilitacion(true);
 
+        [ContextMenu("Deshabilitar")]
         private void Deshabilitar() => ActualizarHabilitacion(false);
 
         private void ActualizarHabilitacion(bool estado)

@@ -88,11 +88,11 @@ namespace Boop.UI
             }
         }
 
-        public void SetearPadre(SlotUI slot)
+        public void SetearPadre(SlotUI slot, Transform slotTransform)
         {
             _slot?.Sacar();
             _slot = slot;
-            _padre = _slot.transform;
+            _padre = slotTransform;
             transform.SetParent(_padre);
         }
 

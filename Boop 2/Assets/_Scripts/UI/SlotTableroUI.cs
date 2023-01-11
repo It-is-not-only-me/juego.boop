@@ -17,6 +17,9 @@ namespace Boop.UI
 
         public void OnDrop(PointerEventData eventData)
         {
+            if (_pieza != null)
+                return;
+
             GameObject objeto = eventData.pointerDrag;
             if (!objeto.TryGetComponent(out PiezaUI pieza))
                 return;
@@ -56,7 +59,7 @@ namespace Boop.UI
         private void SetearPieza(PiezaUI pieza)
         {
             _pieza = pieza;
-            _pieza.SetearPadre(this);
+            _pieza.SetearPadre(this, transform);
             _pieza.SetearCoordenada(_posicionX, _posicionY);
         }
     }

@@ -2,11 +2,12 @@ using Boop.Evento;
 using Boop.Modelo;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Boop.UI
 {
 
-    public class SlotInventarioUI : SlotUI
+    public class SlotInventarioUI : SlotUI, IDropHandler
     {
         [SerializeField] private EventoVoid _eventoAgregarPiezaDeInventario;
         [SerializeField] private EventoVoid _eventoTerminarJugada;
@@ -17,6 +18,9 @@ namespace Boop.UI
         [Space]
 
         [SerializeField] private EventoVoid _eventoSacarPiezaDeInventario;
+
+        [SerializeField] private EventoVoid _eventoAgregaSlot;
+        [SerializeField] private EventoVoid _eventoSacarSlot;
 
         private int _cantidad = 0;
         private bool _seNecesitaRegenerar = false;
@@ -45,6 +49,16 @@ namespace Boop.UI
                 _eventoTerminarJugada.Evento -= RegenerarPieza;
         }
 
+        public void OnDrop(PointerEventData eventData)
+        {
+            GameObject objeto = eventData.pointerDrag;
+            if (!objeto.TryGetComponent(out PiezaUI pieza))
+                return;
+
+            pieza.SetearPadre(this, _posicion);
+            Agregar();
+        }
+
         private void Agregar()
         {
             _cantidad++;
@@ -52,6 +66,7 @@ namespace Boop.UI
                 CrearPieza();
 
             _seNecesitaRegenerar = false;
+            _eventoAgregaSlot?.Invoke();
         }
 
         public override void Sacar()
@@ -61,11 +76,14 @@ namespace Boop.UI
             
             _cantidad--;
             _seNecesitaRegenerar = true;
-            _eventoSacarPiezaDeInventario?.Invoke();
+            _eventoSacarSlot?.Invoke();
         }
 
         private void RegenerarPieza()
         {
+            if (_seNecesitaRegenerar)
+                _eventoSacarPiezaDeInventario?.Invoke();
+
             if (_cantidad > 0 && _seNecesitaRegenerar)
                 CrearPieza();
 

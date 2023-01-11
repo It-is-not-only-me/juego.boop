@@ -10,6 +10,7 @@ namespace Boop.Bahaviour
     {
         [SerializeField] private ConfiguracionInicio _configuracionInicio;
         [SerializeField] private ConfiguracionInventario _configuracionInventario;
+        [SerializeField] private ConfiguracionGanador _configuracionGanador;
 
         [Space]
 
@@ -17,6 +18,8 @@ namespace Boop.Bahaviour
         [SerializeField] private EventoVoid _eventoSeEligeJugador2;
         [SerializeField] private EventoNumero _eventoCantidadGatitos;
         [SerializeField] private EventoNumero _eventoCantidadGatos;
+        [SerializeField] private EventoString _eventoNombreJugador1;
+        [SerializeField] private EventoString _eventoNombreJugador2;
 
         [Space]
 
@@ -24,6 +27,8 @@ namespace Boop.Bahaviour
         [SerializeField] private EventoVoid _eventoJugador2Actual;
         [SerializeField] private EventoNumero _eventoCantidadGatitosActual;
         [SerializeField] private EventoNumero _eventoCantidadGatosActual;
+        [SerializeField] private EventoString _eventoNombreJugador1Actual;
+        [SerializeField] private EventoString _eventoNombreJugador2Actual;
 
         private void Start()
         {
@@ -37,6 +42,8 @@ namespace Boop.Bahaviour
 
             _eventoCantidadGatitosActual?.Invoke(_configuracionInventario.CantidadMaximaGatitos);
             _eventoCantidadGatosActual?.Invoke(_configuracionInventario.CantidadMaximaGatos);
+            _eventoNombreJugador1Actual?.Invoke(_configuracionGanador.NombreGanador1);
+            _eventoNombreJugador2Actual?.Invoke(_configuracionGanador.NombreGanador2);
         }
 
         private void OnEnable()
@@ -52,6 +59,12 @@ namespace Boop.Bahaviour
 
             if (_eventoCantidadGatos != null)
                 _eventoCantidadGatos.Evento += CantidadGatos;
+
+            if (_eventoNombreJugador1 != null)
+                _eventoNombreJugador1.Evento += NombreJugador1;
+
+            if (_eventoNombreJugador2 != null)
+                _eventoNombreJugador2.Evento += NombreJugador2;
         }
 
         private void OnDisable()
@@ -67,6 +80,12 @@ namespace Boop.Bahaviour
 
             if (_eventoCantidadGatos != null)
                 _eventoCantidadGatos.Evento -= CantidadGatos;
+
+            if (_eventoNombreJugador1 != null)
+                _eventoNombreJugador1.Evento -= NombreJugador1;
+
+            if (_eventoNombreJugador2 != null)
+                _eventoNombreJugador2.Evento -= NombreJugador2;
         }
 
         private void SeEligeJugador1()
@@ -91,6 +110,18 @@ namespace Boop.Bahaviour
         {
             _configuracionInventario.CantidadMaximaGatos = cantidad;
             _eventoCantidadGatosActual?.Invoke(cantidad);
+        }
+
+        private void NombreJugador1(string nombre)
+        {
+            _configuracionGanador.NombreGanador1 = nombre;
+            _eventoNombreJugador1Actual?.Invoke(nombre);
+        }
+
+        private void NombreJugador2(string nombre)
+        {
+            _configuracionGanador.NombreGanador2 = nombre;
+            _eventoNombreJugador2Actual?.Invoke(nombre);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace Boop.Configuracion
     public class ConfiguracionInventario : ConfiguracionGuardable
     {
         [System.Serializable]
-        private class Datos
+        private struct Datos
         {
             public int CantidadMaximaGatitos, CantidadMaximaGatos;
         }

@@ -66,7 +66,7 @@ namespace Boop.UI
                 CrearPieza();
 
             _seNecesitaRegenerar = false;
-            _eventoAgregaSlot?.Invoke();
+            _eventoAgregaSlot?.Invoke();    
         }
 
         public override void Sacar()

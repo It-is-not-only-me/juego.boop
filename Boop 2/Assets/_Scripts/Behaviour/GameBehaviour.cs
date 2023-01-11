@@ -61,22 +61,22 @@ namespace Boop.Bahaviour
 
             _estadoActual = _configuracion.PrimerJugador;
 
-            _eventoHabilitarJugador1?.Invoke();
-            _eventoHabilitarJugador2?.Invoke();
-            switch (_estadoActual)
-            {
-                case EstadoJuego.TurnoJugador1:
-                    _eventoDeshabilitarJugador2?.Invoke();
-                    break;
-                case EstadoJuego.TurnoJugador2:
-                    _eventoDeshabilitarJugador1?.Invoke();
-                    break;
-            }
-
             AgregarGatitosAJugador(_jugador1, _configuracion.CantidadDeGatitosJugador1);
             AgregarGatitosAJugador(_jugador2, _configuracion.CantidadDeGatitosJugador2);
             AgregarGatosAJugador(_jugador1, _configuracion.CantidadDeGatosJugador1);
             AgregarGatosAJugador(_jugador2, _configuracion.CantidadDeGatosJugador2);
+
+            switch (_estadoActual)
+            {
+                case EstadoJuego.TurnoJugador1:
+                    _eventoHabilitarJugador1?.Invoke();
+                    _eventoDeshabilitarJugador2?.Invoke();
+                    break;
+                case EstadoJuego.TurnoJugador2:
+                    _eventoDeshabilitarJugador1?.Invoke();
+                    _eventoHabilitarJugador2?.Invoke();
+                    break;
+            }
         }
 
         private void AgregarGatitosAJugador(IJugador jugador, int cantidadPiezas)
